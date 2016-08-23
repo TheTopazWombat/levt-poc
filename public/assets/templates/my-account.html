@@ -1,0 +1,19 @@
+<div class="my-account-container" ng-controller="userCtrl">
+  <h1>{{testUser.first_name}} {{testUser.last_name}}</h1>
+  <p>Welcome back!</p>
+  <div class="cm-jobs-container" ng-repeat="job in myJobs">
+    <div class="cm-job">
+      <h4>{{job.invoice}}</h4>
+      <h4>{{job.model_num}}</h4>
+      <h4>{{job.serial_num}}</h4>
+      <p>{{job.status}}</p>
+      <p>{{job.next_step}}</p>
+      <p>{{job.tracking_num}}</p>
+      <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">Request New Appointment</button>
+      <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button>
+      
+    </div>
+  </div>
+<ui-view></ui-view>
+
+</div>

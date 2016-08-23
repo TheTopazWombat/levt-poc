@@ -1,0 +1,92 @@
+.new-appt {
+    margin-left: 45px;
+    button {
+        background: #266D88;
+        cursor: pointer;
+        border: none;
+        /*display: inline-flex;*/
+        /*flex-direction: row-reverse;*/
+        justify-content: space-between;
+        margin-top: 0.2em;
+        // margin-right: 1%;
+        padding: 0.3em;
+        width: 48%;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+        color: #fff;
+        max-height: 37px;
+    }
+    button:focus,
+    button:hover {
+        // background: rgb(200, 200, 200);
+        background: #fff;
+        color: #266D88;
+        font-weight: 700;
+        border: 1px solid #266D88;
+    }
+    .input {
+        width: 300px;
+    }
+    .submit-btn {
+        margin-left: 75px;
+        // margin-right: 50%;
+    }
+    .btn-span {
+        // justify-content: center;
+    }
+}
+.cm-job {
+  float: left;
+  width: 300px;
+  min-height: 250px;
+  // margin: 50px auto;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-top: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.21);
+  text-align: center;
+    button {
+        background: #266D88;
+        cursor: pointer;
+        border: none;
+        /*display: inline-flex;*/
+        /*flex-direction: row-reverse;*/
+        justify-content: space-between;
+        margin-top: 0.2em;
+        // margin-right: 1%;
+        padding: 0.3em;
+        width: 220px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+        color: #fff;
+        max-height: 36px;
+        border: 1px solid #266D88;
+
+    }
+    button:focus,
+    button:hover {
+        // background: rgb(200, 200, 200);
+        background: #fff;
+        color: #266D88;
+        font-weight: 700;
+    }
+}
+
+.updateJobContainer {
+  text-align: center;
+  li p {
+    margin-bottom: -35px;
+    font-size: 14px;
+    margin-left: 10px;
+    text-decoration: underline;
+
+  }
+  button {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,47 @@
+<div ng-controller="techCtrl">
+    <div class="welcome">
+        <h1>Welcome back, Isaac!</h1>
+        <p>You have <span id="appt-count">{{numOfAppts}}</span> appointments today, better get on it!</p>
+    </div>
+    <div class="manuf-container"><div class="new-manuf">
+        <span class="input manuf-field">
+          <input class="input__field" type="text" id="input-6" ng-model="manuf_name"/>
+          <label class="input__label input__label--color-1" for="input-6">
+            <span class="input__label-content">Manufacturer Name</span>
+          </label>
+        </span>
+        <span class="input manuf-field">
+          <input class="input__field" type="text" id="input-5" ng-model="tech_assigned"/>
+          <label class="input__label input__label--color-1" for="input-5">
+            <span class="input__label-content">Tech Assigned</span>
+          </label>
+        </span>
+
+      <span class="input manuf-field">
+      <input class="input__field" type="text" id="input-1" ng-model="phone_num"/>
+      <label class="input__label input__label--color-1" for="input-1">
+        <span class="input__label-content">Phone Number</span>
+      </label>
+    </span>
+    <span class="input manuf-field">
+      <input class="input__field" type="text" id="input-2" ng-model="manuf_warranty"/>
+      <label class="input__label input__label--color-1" for="input-2">
+        <span class="input__label-content">Manufacturer's Warranty</span>
+      </label>
+    </span>
+    <span class="input manuf-field">
+      <input class="input__field" type="text" id="input-3" ng-model="website"/>
+      <label class="input__label input__label--color-1" for="input-3">
+        <span class="input__label-content">Website</span>
+      </label>
+    </span>
+        <span class="input manuf-field">
+        <input class="input__field" type="text" id="input-4" ng-model="hours_of_op"/>
+        <label class="input__label input__label--color-1" for="input-4">
+          <span class="input__label-content">Hours</span>
+        </label>
+      </span>
+    <button type="button" name="button" id="new-acct-btn" ng-click="createNewManuf(manuf_name, tech_assigned, phone_num, manuf_warranty, website, hours_of_op)">Add New MF</button>
+  </div></div>
+
+</div>

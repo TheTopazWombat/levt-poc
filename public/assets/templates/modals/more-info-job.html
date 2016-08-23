@@ -1,0 +1,41 @@
+<div class="more-info">
+    <h3>{{customer.last_name}}, {{customer.first_name}}</h3>
+    <h3>{{customer.appt_time}}</h3>
+    <h3>{{customer.appt_phone}}</h3>
+    <ul class="job-phones">
+        <li class="cm-phone">{{customer.phone_num1}} | {{customer.phone_num2}} | {{customer.phone_num3}}</li>
+        <!-- <li class="cm-phone"> {{customer.phone_num2}} | </li>
+      <li class="cm-phone"> {{customer.phone_num3}}</li> -->
+
+    </ul>
+    <textarea name="" id="" cols="30" rows="6" value="{{testCm.next_step}}" ng-model="customer.next_step">{{customer.next_step}}</textarea>
+    <ul>
+        <li>
+          <h4>Model Number</h4>
+            <span class="input">
+            <input class="input__field" type="text" id="input-4" value="{{customer.model_num}}" ng-model="customer.model_num"/>
+            <label class="input__label input__label--color-1" for="input-4">
+              <span class="input__label-content"></span>
+            </label>
+          </span>
+        </li>
+        <li>
+          <span class="input">
+          <input class="input__field" type="text" id="input-5" value="{{customer.serial_num}}" ng-model="customer.serial_num"/>
+          <label class="input__label input__label--color-1" for="input-5">
+            <span class="input__label-content"></span>
+          </label>
+        </span>
+        </li>
+        <li>
+          <span class="input">
+          <input class="input__field" type="text" id="input-3" value="{{customer.status}}" ng-model="customer.status"/>
+          <label class="input__label input__label--color-1" for="input-3">
+            <span class="input__label-content"></span>
+          </label>
+        </span>
+        </li>
+    </ul>
+    <input type="checkbox" name="name" value="" ng-model="apptMet">Has the appointment been met?
+  <button type="button" name="button" id="update" ng-click="updateJobAppt(apptMet, customer.next_step, customer.model_num, customer.serial_num, customer.status, customer.cm_id, customer.appt_id, customer.invoice); closeThisDialog();">Update Job</button>
+</div>

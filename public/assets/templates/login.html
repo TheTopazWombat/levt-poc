@@ -1,0 +1,30 @@
+<div ng-controller="loginCtrl">
+    <div class="login-container">
+      <!-- {{ThisAppIsBroken}} -->
+        <div class="sign-in-up-selector">
+          <div class="selector-button selected" id="sign-in" ng-model="selectd" ng-click="select()">SIGN IN</div>
+          <div class="selector-button unselected" id="sign-up" ng-model="selectd" ng-click="select()">SIGN UP</div>
+        </div>
+        <div class="button-underline"></div>
+        <div class="button-underline-half"></div>
+        <div class="sign-in-fields">
+          <span class="input">
+					<input class="input__field" type="text" id="input-4" />
+					<label class="input__label input__label--color-1" for="input-4">
+						<span class="input__label-content">EMAIL</span>
+					</label>
+				</span>
+				<span class="input">
+					<input class="input__field" type="password" id="input-5" />
+					<label class="input__label input__label--color-1" for="input-5">
+						<span class="input__label-content">PASSWORD</span>
+					</label>
+				</span>
+        </div>
+        <div class="sign-up-fields">
+
+        </div>
+        <a href="/auth/google"><div id="google-login"></div></a>
+    </div>
+    <!-- <button type="button" name="button" ng-click="testLogin()">TEST</button> -->
+</div>

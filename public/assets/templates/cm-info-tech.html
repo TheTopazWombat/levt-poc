@@ -1,0 +1,24 @@
+<div ng-controller="techCtrl" ng-cloak>
+  <input type="text" ng-model="invoice" placeholder="search by invoice">
+  <button type="button" name="button" ng-click="getJobByInvoice(invoice)">Search</button>
+  <!-- {{customer}} -->
+  <br>
+<div class="cm-info-tech-view">  <p>{{customer.last_name}}, {{customer.first_name}}</p>
+  <br>
+  <p>{{customer.invoice}}</p>
+  <ul>
+    <li>
+      {{customer.phone_num1}}  {{customer.phone_num2}}  {{customer.phone_num3}}
+    </li>
+    <li>
+      {{customer.model_num}}
+    </li>
+    <li>
+      {{customer.serial_num}}
+    </li>
+    <li>
+      {{customer.tracking_num}}
+    </li>
+  </ul></div>
+  <!-- {{customer}} -->
+</div>

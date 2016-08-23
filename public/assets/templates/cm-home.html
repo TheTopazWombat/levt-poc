@@ -1,0 +1,31 @@
+<div ng-controller="userCtrl">
+    <h1>Welcome back, {{testUser.first_name}} {{testUser.last_name}}</h1>
+    <h2>You have {{myJobs.length}} active job right now</h2>
+    <div class="cm-jobs-container" ng-repeat="job in myJobs">
+      <div class="cm-job">
+        <h4>{{job.invoice}}</h4>
+        <h4>{{job.model_num}}</h4>
+        <h4>{{job.serial_num}}</h4>
+        <p>{{job.status}}</p>
+        <p>{{job.next_step}}</p>
+        <p>{{job.tracking_num}}</p>
+        <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">Request New Appointment</button>
+        <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button>
+      </div>
+    </div>
+
+    <div class="cm-appts-container" ng-repeat="appt in unmetCmAppts">
+      <div class="cm-appt">
+        <h4>{{appt.job_invoice}}</h4>
+        <h4>{{appt.appt_time}}</h4>
+        <h4>{{appt.appt_phone}}</h4>
+      </div>
+
+    </div>
+
+
+</div>
+
+<!-- 1469923200000 -->
+
+<!-- 1469973600000 -->

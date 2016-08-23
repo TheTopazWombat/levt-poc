@@ -1,0 +1,11 @@
+<div class="new-appt">
+  <span class="input">
+  <!-- <input class="input__field" type="text" id="input-4" /> -->
+  <input type="text" placeholder = "What number should we call?" ng-model="callThisNum" class="input__field cm-phone-input" id="input-4">
+  <label class="input__label input__label--color-1" for="input-4">
+    <span class="input__label-content"></span>
+  </label>
+</span>
+    <datetimepicker data-ng-model="data.date" data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)" data-on-set-time="onTimeSet(newDate, oldDate, callThisNum)"></datetimepicker>
+    <div class="btn-span"><button type="button" class="submit-btn" ng-click="requestNewAppt(job.tech_assigned); closeThisDialog()">Submit</button></div>
+</div>

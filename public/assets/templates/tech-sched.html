@@ -1,0 +1,41 @@
+<div ng-controller="techCtrl" class="all-appts">
+    <!-- <div class="missed-appts-list">
+        <missed-job-directive></missed-job-directive>
+    </div> -->
+    <div class="missed-appts appts-container">
+      <h2>{{missedApptsMessage}}</h2>
+      <div class="tech-appt"  ng-repeat="appt in pastAppts">
+        <h4>{{appt.last_name}}, {{appt.first_name}}</h4>
+        <h4>{{appt.invoice}}</h4>
+        <h3>{{appt.timeUntilAppt}}</h3>
+        <h3>({{appt.display_time}})</h3>
+        <button type="button" name="button" ng-click="getJobByInvoice(appt.invoice, appt.appt_time, appt.appt_met, appt.appt_phone, appt.appt_id)" class="more-info-btn">More Info</button>
+
+      </div>
+    </div>
+    <div class="today-appts appts-container">
+      <h2>Today's Appointments are...</h2>
+      <div class="tech-appt"  ng-repeat="appt in todayAppts">
+        <h4>{{appt.last_name}}, {{appt.first_name}}</h4>
+        <h4>{{appt.invoice}}</h4>
+        <h3>{{appt.timeUntilAppt}}</h3>
+        <h3>({{appt.display_time}})</h3>
+        <button type="button" name="button" ng-click="getJobByInvoice(appt.invoice, appt.appt_time, appt.appt_met, appt.appt_phone, appt.appt_id)" class="more-info-btn">More Info</button>
+
+        <!-- <h4>{{cm.invoice}}</h4> -->
+
+      </div>
+        <!-- <today-appts class="tech-appt" ng-repeat="apt in techAppointments"></today-appts>
+        {{timeTest}} -->
+    </div>
+    <div class="future-appts appts-container">
+      <h2>Future Appointments</h2>
+      <div class="tech-appt"  ng-repeat="appt in futureAppts">
+        <h4>{{appt.last_name}}, {{appt.first_name}}</h4>
+        <h4>{{appt.invoice}}</h4>
+        <h3>{{appt.timeUntilAppt}}</h3>
+        <h3>({{appt.display_time}})</h3>
+        <button type="button" name="button" ng-click="getJobByInvoice(appt.invoice, appt.appt_time, appt.appt_met, appt.appt_phone, appt.appt_id)" class="more-info-btn">More Info</button>
+      </div>
+    </div>
+</div>

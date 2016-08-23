@@ -1,0 +1,122 @@
+.appts-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    // border: 1px solid red;
+    // background-color: #ccc;
+    text-align: center;
+    clear: both;
+    h2 {
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+.more-info {
+    text-align: center;
+    .job-phones {
+        display: inline-block;
+        // flex-direction: row;
+    }
+    li h4 {
+        margin-top: 25px;
+    }
+}
+button {
+    background: #266D88;
+    cursor: pointer;
+    border: none;
+    /*display: inline-flex;*/
+    /*flex-direction: row-reverse;*/
+    justify-content: space-between;
+    margin-top: 0.2em;
+    // margin-right: 1%;
+    padding: 0.3em;
+    width: 150px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    color: #fff;
+    max-height: 36px;
+    border: 1px solid #266D88;
+}
+button:focus,
+button:hover {
+    // background: rgb(200, 200, 200);
+    background: #fff;
+    color: #266D88;
+    font-weight: 700;
+}
+.tech-appt {
+    // float: left;
+    display: inline-block;
+    width: 300px;
+    min-height: 150px;
+    // margin: 50px auto;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-top: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.21);
+    text-align: center;
+    transition: all .3s ease-in-out;
+
+
+    button {
+        background: #266D88;
+        cursor: pointer;
+        border: none;
+        /*display: inline-flex;*/
+        /*flex-direction: row-reverse;*/
+        justify-content: space-between;
+        margin-top: 0.2em;
+        // margin-right: 1%;
+        padding: 0.3em;
+        width: 150px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border-radius: 5px;
+        color: #fff;
+        max-height: 36px;
+        border: 1px solid #266D88;
+    }
+    button:focus,
+    button:hover {
+        // background: rgb(200, 200, 200);
+        background: #fff;
+        color: #266D88;
+        font-weight: 700;
+    }
+}
+
+.tech-appt:hover {
+    transform: scale(1.1) !important;
+    // opacity: 1;
+}
+
+.manuf-container {
+  text-align: center;
+  justify-content: center;
+}
+
+.new-manuf{
+  margin: auto;
+  width: 40%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.21);
+  text-align: center;
+  .manuf-field {
+    width: 30%;
+
+  }
+  .input__label-content {
+      text-align: left;
+  }
+}

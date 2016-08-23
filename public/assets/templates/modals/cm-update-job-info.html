@@ -1,0 +1,58 @@
+<div class="updateJobContainer">
+    <h4>{{testUser.first_name}} {{testUser.last_name}}</h4>
+    <h4>{{updateJob.invoice}}</h4>
+    <!-- <h4>{{updateJob.model_num}}</h4> -->
+    <!-- <h4>{{updateJob.serial_num}}</h4> -->
+    <p>{{updateJob.status}}</p>
+    <p>{{updateJob.next_step}}</p>
+    <p>{{updateJob.tracking_num}}</p>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Manufacturer
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Kid Trax</a></li>
+            <li><a href="#">Power Wheels</a></li>
+            <li><a href="#">Currie</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+    <ul>
+        <li>
+            <!-- <h4>Model Number</h4> -->
+            <span class="input">
+            <p>Model Number</p>
+
+          <input class="input__field" type="text" id="input-1" ng-model="updateJob.model_num"/>
+          <label class="input__label input__label--color-1" for="input-1">
+            <span class="input__label-content"></span>
+            </label>
+            </span>
+        </li>
+        <li>
+            <span class="input">
+          <p>Serial Number</p>
+
+        <input class="input__field" type="text" id="input-2" ng-model="updateJob.serial_num"/>
+        <label class="input__label input__label--color-1" for="input-2">
+          <span class="input__label-content"></span>
+            </label>
+            </span>
+        </li>
+        <li>
+            <span class="input">
+          <p>Best Phone Number</p>
+        <input class="input__field" type="text" id="input-3" ng-model="testUser.phone_num1"/>
+        <label class="input__label input__label--color-1" for="input-3">
+          <span class="input__label-content"></span>
+            </label>
+            </span>
+        </li>
+
+
+    </ul>
+
+    <button type="button" name="button" ng-click="updateJobInfoCm(updateJob.model_num, updateJob.serial_num, testUser.phone_num1, updateJob.invoice)">Update</button>
+</div>
