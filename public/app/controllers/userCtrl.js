@@ -11,7 +11,7 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
 
     };
 
-    // $scope.
+    $scope.hideValue = true;
 
     $scope.getMyCmInfo();
 
@@ -98,7 +98,7 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
             $scope.unmetCmAppts.push(appts[i]);
           }
         }
-        console.log($scope.cmAppointments);
+        console.log($scope.unmetCmAppts);
       });
     };
 

@@ -4,7 +4,13 @@
 
 body {
   font-family: 'Roboto';
+  background-color: #f4f4f4;
 }
+header {
+  background-color: #fff;
+  outline: none;
+}
+
 .cm-test {
     width: 40%;
     border: 5px solid black;
@@ -161,7 +167,7 @@ body {
     margin-left: 35%;
     text-align: center;
     color: #fff;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto";
     font-size: 2rem;
     /*border: 1px solid #fff;*/
     /*background-color:rgba(0, 0, 0, 0.5);*/

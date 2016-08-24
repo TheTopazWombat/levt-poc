@@ -21,16 +21,20 @@ angular.module('app')
             .state('landing', {
                 url: '/',
                 // controller: './app/controllers/userCtrl.js',
-                templateUrl: 'assets/templates/landing.html'
+                templateUrl: 'assets/templates/landing.html',
+                resolve: {
+
+                }
             })
             .state('login', {
                 url: '/login',
                 templateUrl: 'assets/templates/login.html'
             })
-            .state('cm-info', {
-                url: '/cm-info',
-                templateUrl: 'assets/templates/cm-info-tech.html',
+            .state('cm-dashboard', {
+                url: '/cm-dashboard',
+                templateUrl: 'assets/templates/cm-dashboard.html',
                 resolve: {
+
                     security: (mainServ, $state) => {
 
                       return mainServ.isAuthed()
@@ -41,8 +45,32 @@ angular.module('app')
                               }
                           });
 
-                        }
+                        },
+
                 }
+            })
+
+            // MAIN DASHBOARD AND SUBVIEWS
+
+            .state('cm-dashboard.main', {
+              url: '/main',
+              templateUrl: 'assets/templates/cm-dashboard-main.html'
+
+            })
+                .state('cm-dashboard.main.claims', {
+                  url: '/claims',
+                  templateUrl: 'assets/templates/cm-dashboard-main.claims.html'
+                })
+                .state('cm-dashboard.main.appts', {
+                  url: '/appointments',
+                  templateUrl: 'assets/templates/cm-dashboard-main.appts.html'
+                })
+
+            // ACCOUNT DASHBOARD AND SUBVIEWS
+            .state('cm-dashboard.account', {
+              url: '/account',
+              templateUrl: 'assets/templates/cm-dashboard-main.html'
+
             })
             .state('cm-home', {
                 url: '/cm-home',

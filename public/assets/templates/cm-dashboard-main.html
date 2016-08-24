@@ -1,0 +1,34 @@
+<div class="dashboard-subview-container">
+
+    <div class="subroute-header">
+    <ul class="header-profile">
+        <li>
+            <div>
+                <img class="profile-img" src="assets/images/testdoge.jpeg" alt="">
+
+
+            </div>
+        </li>
+        <li>
+            <div class="header-name" ng-cloak>
+                {{testUser.first_name}} {{testUser.last_name}} (Customer)
+            </div>
+        </li>
+    </ul>
+    <ul class="subroute-nav">
+        <li>
+            <a ui-sref="cm-dashboard.main.claims"><span>Active Claims</span></a>
+        </li>
+        <li>
+            <a ui-sref="cm-dashboard.main.appts"><span>Scheduled Appointments</span></a>
+        </li>
+        <li>
+            <a ui-sref="my-account.info"><span>My Account</span></a>
+        </li>
+    </ul>
+    </div>
+    <div class="subroute-body">
+      <ui-view></ui-view>
+    </div>
+
+</div>

@@ -6,19 +6,24 @@
     <p>{{updateJob.status}}</p>
     <p>{{updateJob.next_step}}</p>
     <p>{{updateJob.tracking_num}}</p>
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Manufacturer
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Kid Trax</a></li>
-            <li><a href="#">Power Wheels</a></li>
-            <li><a href="#">Currie</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
+    <select class="mf-select">
+        <optgroup label="Kid's Car">
+            <option>Power Wheels</option>
+            <option>Kid Trax</option>
+            <option>Peg Perego</option>
+        </optgroup>
+        <optgroup label="Electric Bike">
+            <option>Currie</option>
+            <option>Yukon</option>
+            <option>TidalForce</option>
+        </optgroup>
+        <optgroup label="Electric Scooter">
+            <option>Razor</option>
+            <option>Currie</option>
+            <option>Aria's Child</option>
+        </optgroup>
+    </select>
+
     <ul>
         <li>
             <!-- <h4>Model Number</h4> -->
