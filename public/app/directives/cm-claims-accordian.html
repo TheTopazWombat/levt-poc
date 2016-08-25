@@ -10,17 +10,24 @@
         </div>
 
     </div>
-    <div class="accordian-contents">
-      <div class="mini-claim" aria-expanded="false" ng-repeat="job in myJobs" >
+    <div class="accordian-contents panel">
+      <div class="mini-claim panel-heading" aria-expanded="false" ng-repeat="job in myJobs" data-toggle="collapse" data-target="#collapseOne">
         <h3 class="accordian-item">Model: {{job.model_num}}</h3>
         <h3 class="accordian-item">Invoice: {{job.invoice}}</h3>
         <!-- <div class="job-expand" ng-hide="hideValue">I'm invisible!</div> -->
+
       </div>
+
       <div class="old-claims-div">
         <h1>No Old Claims!</h1>
       </div>
 
     </div>
+    <uib-accordion>
+      <div uib-accordion-group class="panel-default" heading="Dynamic Body Content" ng-reapeat="job in myJobs">
+        <p>{{job.invoice}}</p>
+      </div>
+    </uib-accordion>
     <!-- <div class="accordian-contents">
       <div class="body2">
         These are not

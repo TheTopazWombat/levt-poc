@@ -1,1 +1,1 @@
-angular.module('app', ['ui.router', 'ui.bootstrap.datetimepicker', 'ngDialog']);
+angular.module('app', ['ui.router', 'ui.bootstrap.datetimepicker', 'ngDialog', 'ui.bootstrap']);
