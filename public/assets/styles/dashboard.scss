@@ -1,10 +1,11 @@
 .sidebar {
-  height: 90vh;
+  height: 100vh;
   background-color: #266D88;
   width:  225px;
   color: #fff;
   float: left;
   transition: all .3s ease-in-out;
+  overflow: hidden;
 
 
   li a {
@@ -191,11 +192,15 @@
 
   .mini-claim {
 
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    // border: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 15px;
     padding-bottom: 15px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: -webkit-transform 2s ease-in-out;
+  }
+
+  .panel-body {
+    border-top: none !important;
   }
 
   .anim {
@@ -213,29 +218,29 @@
   }
 
 }
-
-.animate-hide {
- -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-  line-height:20px;
-  opacity:1;
-  padding:10px;
-  border:1px solid black;
-  background:white;
-  position: absolute;
-  left: 0;
-}
-
-.animate-hide.ng-hide {
-  left: 200px;
-  opacity:0;
-  padding:0 10px;
-}
-
-.job-expand {
-  right: 500px;
-  position: absolute;
-  border: 1px solid red;
-}
+//
+// .animate-hide {
+//  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+//     -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+//     -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+//     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+//   line-height:20px;
+//   opacity:1;
+//   padding:10px;
+//   border:1px solid black;
+//   background:white;
+//   position: absolute;
+//   left: 0;
+// }
+//
+// .animate-hide.ng-hide {
+//   left: 200px;
+//   opacity:0;
+//   padding:0 10px;
+// }
+//
+// .job-expand {
+//   right: 500px;
+//   position: absolute;
+//   border: 1px solid red;
+// }

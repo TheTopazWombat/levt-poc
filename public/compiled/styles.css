@@ -867,12 +867,13 @@ select {
   color: #595F6E; }
 
 .sidebar {
-  height: 90vh;
+  height: 100vh;
   background-color: #266D88;
   width: 225px;
   color: #fff;
   float: left;
-  transition: all .3s ease-in-out; }
+  transition: all .3s ease-in-out;
+  overflow: hidden; }
   .sidebar li a {
     color: #fff;
     text-decoration: none;
@@ -994,11 +995,12 @@ select {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .accordian .mini-claim {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 15px;
     padding-bottom: 15px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: -webkit-transform 2s ease-in-out; }
+  .accordian .panel-body {
+    border-top: none !important; }
   .accordian .anim {
     -webkit-transform: translate(200px, 200px); }
   .accordian .accordian-item {
@@ -1007,29 +1009,6 @@ select {
     text-align: center;
     opacity: 0;
     color: #777779; }
-
-.animate-hide {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
-  line-height: 20px;
-  opacity: 1;
-  padding: 10px;
-  border: 1px solid black;
-  background: white;
-  position: absolute;
-  left: 0; }
-
-.animate-hide.ng-hide {
-  left: 200px;
-  opacity: 0;
-  padding: 0 10px; }
-
-.job-expand {
-  right: 500px;
-  position: absolute;
-  border: 1px solid red; }
 
 .new-account-fields {
   width: 40%;

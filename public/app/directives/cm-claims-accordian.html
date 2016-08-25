@@ -11,23 +11,33 @@
 
     </div>
     <div class="accordian-contents panel">
-      <div class="mini-claim panel-heading" aria-expanded="false" ng-repeat="job in myJobs" data-toggle="collapse" data-target="#collapseOne">
+      <!-- <div class="mini-claim" ng-repeat="job in myJobs" data-toggle="collapse" data-target="#collapseOne">
         <h3 class="accordian-item">Model: {{job.model_num}}</h3>
         <h3 class="accordian-item">Invoice: {{job.invoice}}</h3>
-        <!-- <div class="job-expand" ng-hide="hideValue">I'm invisible!</div> -->
 
-      </div>
+
+      </div> -->
+      <uib-accordion>
+      <div class="mini-claim" ng-repeat="job in myJobs" uib-accordion-group class="panel-default" heading="{{job.model_num}}">
+            <h4>{{job.invoice}}</h4>
+            <h4>{{job.model_num}}</h4>
+            <h4>{{job.serial_num}}</h4>
+            <p>{{job.status}}</p>
+            <p>{{job.next_step}}</p>
+            <p>{{job.tracking_num}}</p>
+            <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">New Appointment</button>
+            <br>
+            <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button>
+
+        </div>
+    </uib-accordion>
 
       <div class="old-claims-div">
         <h1>No Old Claims!</h1>
       </div>
 
     </div>
-    <uib-accordion>
-      <div uib-accordion-group class="panel-default" heading="Dynamic Body Content" ng-reapeat="job in myJobs">
-        <p>{{job.invoice}}</p>
-      </div>
-    </uib-accordion>
+
     <!-- <div class="accordian-contents">
       <div class="body2">
         These are not
