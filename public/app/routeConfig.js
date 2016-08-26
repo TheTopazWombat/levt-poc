@@ -67,9 +67,9 @@ angular.module('app')
                 })
 
             // ACCOUNT DASHBOARD AND SUBVIEWS
-            .state('cm-dashboard.account', {
+            .state('cm-dashboard.main.account', {
               url: '/account',
-              templateUrl: 'assets/templates/cm-dashboard-main.html'
+              templateUrl: 'assets/templates/cm-dashboard-main.account.html'
 
             })
             .state('cm-home', {
@@ -121,7 +121,14 @@ angular.module('app')
               })
               .state('my-account.new', {
                 url: '/new',
-                templateUrl: 'assets/templates/my-account.create.html'
+                templateUrl: 'assets/templates/my-account.create.html',
+                resolve: {
+                  helloNewPerson: () => {
+                    ngDialog.open({
+                      templateUrl: 'assets/templates/modals/new-account-greeting.html'
+                    });
+                  }
+                }
 
               })
             .state('tech-sched', {

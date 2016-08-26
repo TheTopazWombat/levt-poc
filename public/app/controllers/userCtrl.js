@@ -181,4 +181,11 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
       });
     };
 
+    $scope.updateCmAccount = (first_name, last_name, address_line1, address_line2, invoice_number, phone_num1, phone_num2, model_num, serial_num) => {
+      ngDialog.open({
+        template: './assets/templates/modals/job-update-confirmation.html',
+        scope: $scope
+      })
+    };
+
 }

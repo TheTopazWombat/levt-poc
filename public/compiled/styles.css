@@ -453,7 +453,8 @@ header {
   /*flex: 1;*/
   display: flex;
   /*flex-direction: row;*/
-  /*align-items: stretch;*/ }
+  /*align-items: stretch;*/
+  width: 80%; }
 
 /*.container2 {
   width: 33%;
@@ -622,7 +623,8 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: white;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.21); }
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.21);
+  margin-bottom: 10%; }
 
 .sign-in-up-selector {
   display: flex;
@@ -879,7 +881,7 @@ select {
   color: #595F6E; }
 
 .sidebar {
-  height: 130vh;
+  height: 110vh;
   background-color: #266D88;
   width: 225px;
   color: #fff;
@@ -1034,7 +1036,7 @@ select {
   font-weight: 700; }
 
 .contact-us {
-  min-width: 300px;
+  min-width: 400px;
   position: absolute;
   display: inline-block;
   margin-left: 140px;
@@ -1184,6 +1186,7 @@ select {
   text-align: center; }
 
 .new-account-fields {
+  background-color: #fff;
   width: 40%;
   margin-left: 10px;
   margin-top: 10px;
@@ -1214,6 +1217,31 @@ select {
     display: inline-block;
     width: 30%;
     justify-content: center; }
+
+#subview-new-appt-container {
+  margin-left: 150px;
+  margin-top: 60px;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  min-width: 400px;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  max-height: 508px; }
+  #subview-new-appt-container .input__label-content {
+    text-align: left;
+    margin-left: 20px; }
+  #subview-new-appt-container .input {
+    width: 200px; }
+  #subview-new-appt-container .datetimepicker {
+    margin: auto;
+    padding-bottom: 10px; }
+  #subview-new-appt-container .submit-btn {
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 15px; }
 
 @-webkit-keyframes ngdialog-flyin {
   0% {

@@ -1,18 +1,25 @@
 angular.module('app')
   .directive('siteHeader', siteHeader);
 
-  function siteHeader() {
+  function siteHeader($rootScope) {
     return {
       templateUrl: 'app/directives/site-header.html',
       // scope: $scope,
       // controller: 'mainCtrl',
       link: function(scope, element, attr){
         $('.dashboard-link').on('click', () => {
-          $('.primary-nav').fadeOut(700, () => {
+          if ($rootScope.testUser || $rootScope.currentTech){$('.primary-nav').fadeOut(700, () => {
             $('.primary-nav').hide(() => {
-              $('.site-header').animate({'margin-left': '-65vw'}, 800);
+              $('.site-header').animate({'margin-left': '-75vw'}, 800);
             });
-          });
+          });}
+        });
+        $('.tech-dashboard-link').on('click', () => {
+          if ( $rootScope.currentTech){$('.primary-nav').fadeOut(700, () => {
+            $('.primary-nav').hide(() => {
+              $('.site-header').animate({'margin-left': '-75vw'}, 800);
+            });
+          });}
         });
 
 

@@ -16,112 +16,119 @@ angular.module('app')
 //     });
 // })
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('landing', {
-        url: '/',
-        // controller: './app/controllers/userCtrl.js',
-        templateUrl: 'assets/templates/landing.html',
-        resolve: {}
-    }).state('login', {
-        url: '/login',
-        templateUrl: 'assets/templates/login.html'
-    }).state('cm-dashboard', {
-        url: '/cm-dashboard',
-        templateUrl: 'assets/templates/cm-dashboard.html',
-        resolve: {
+  $stateProvider.state('landing', {
+    url: '/',
+    // controller: './app/controllers/userCtrl.js',
+    templateUrl: 'assets/templates/landing.html',
+    resolve: {}
+  }).state('login', {
+    url: '/login',
+    templateUrl: 'assets/templates/login.html'
+  }).state('cm-dashboard', {
+    url: '/cm-dashboard',
+    templateUrl: 'assets/templates/cm-dashboard.html',
+    resolve: {
 
-            security: function security(mainServ, $state) {
+      security: function security(mainServ, $state) {
 
-                return mainServ.isAuthed().then(function (response) {
-                    console.log(response);
-                    if (response.data == "Not authorized") {
-                        $state.go('login');
-                    }
-                });
-            }
+        return mainServ.isAuthed().then(function (response) {
+          console.log(response);
+          if (response.data == "Not authorized") {
+            $state.go('login');
+          }
+        });
+      }
 
-        }
-    })
+    }
+  })
 
-    // MAIN DASHBOARD AND SUBVIEWS
+  // MAIN DASHBOARD AND SUBVIEWS
 
-    .state('cm-dashboard.main', {
-        url: '/main',
-        templateUrl: 'assets/templates/cm-dashboard-main.html'
+  .state('cm-dashboard.main', {
+    url: '/main',
+    templateUrl: 'assets/templates/cm-dashboard-main.html'
 
-    }).state('cm-dashboard.main.claims', {
-        url: '/claims',
-        templateUrl: 'assets/templates/cm-dashboard-main.claims.html'
-    }).state('cm-dashboard.main.appts', {
-        url: '/appointments',
-        templateUrl: 'assets/templates/cm-dashboard-main.appts.html'
-    })
+  }).state('cm-dashboard.main.claims', {
+    url: '/claims',
+    templateUrl: 'assets/templates/cm-dashboard-main.claims.html'
+  }).state('cm-dashboard.main.appts', {
+    url: '/appointments',
+    templateUrl: 'assets/templates/cm-dashboard-main.appts.html'
+  })
 
-    // ACCOUNT DASHBOARD AND SUBVIEWS
-    .state('cm-dashboard.account', {
-        url: '/account',
-        templateUrl: 'assets/templates/cm-dashboard-main.html'
+  // ACCOUNT DASHBOARD AND SUBVIEWS
+  .state('cm-dashboard.main.account', {
+    url: '/account',
+    templateUrl: 'assets/templates/cm-dashboard-main.account.html'
 
-    }).state('cm-home', {
-        url: '/cm-home',
-        templateUrl: 'assets/templates/cm-home.html',
-        resolve: {
-            security: function security(mainServ, $state) {
+  }).state('cm-home', {
+    url: '/cm-home',
+    templateUrl: 'assets/templates/cm-home.html',
+    resolve: {
+      security: function security(mainServ, $state) {
 
-                return mainServ.isAuthed().then(function (response) {
-                    if (response.data == "Not authorized") {
-                        $state.go('login');
-                    }
-                });
-            }
+        return mainServ.isAuthed().then(function (response) {
+          if (response.data == "Not authorized") {
+            $state.go('login');
+          }
+        });
+      }
 
-        }
-    }).state('my-account', {
-        url: '/my-account',
-        templateUrl: 'assets/templates/my-account.html'
-    }).state('my-account.info', {
-        url: '/info',
-        templateUrl: 'assets/templates/my-account.info.html',
-        resolve: {
-            security: function security(mainServ, $state) {
-                mainServ.isAuthed().then(function (response) {
-                    if (response.data == "Not authorized") {
-                        $state.go('my-account.new');
-                    }
-                });
-            }
-        }
-    }).state('my-account.new', {
-        url: '/new',
-        templateUrl: 'assets/templates/my-account.create.html'
+    }
+  }).state('my-account', {
+    url: '/my-account',
+    templateUrl: 'assets/templates/my-account.html'
+  }).state('my-account.info', {
+    url: '/info',
+    templateUrl: 'assets/templates/my-account.info.html',
+    resolve: {
+      security: function security(mainServ, $state) {
+        mainServ.isAuthed().then(function (response) {
+          if (response.data == "Not authorized") {
+            $state.go('my-account.new');
+          }
+        });
+      }
+    }
+  }).state('my-account.new', {
+    url: '/new',
+    templateUrl: 'assets/templates/my-account.create.html',
+    resolve: {
+      helloNewPerson: function helloNewPerson() {
+        ngDialog.open({
+          templateUrl: 'assets/templates/modals/new-account-greeting.html'
+        });
+      }
+    }
 
-    }).state('tech-sched', {
-        url: '/tech-sched',
-        templateUrl: 'assets/templates/tech-sched.html',
-        resolve: {
-            security: function security(mainServ, $state) {
+  }).state('tech-sched', {
+    url: '/tech-sched',
+    templateUrl: 'assets/templates/tech-sched.html',
+    resolve: {
+      security: function security(mainServ, $state) {
 
-                return mainServ.isTech().then(function (response) {
-                    if (response.data == "Not authorized") {
-                        $state.go('login');
-                    }
-                });
-            }
-        }
-    }).state('tech-home', {
-        url: '/tech-home',
-        templateUrl: 'assets/templates/tech-home.html',
-        resolve: {
-            security: function security(mainServ, $state) {
+        return mainServ.isTech().then(function (response) {
+          if (response.data == "Not authorized") {
+            $state.go('login');
+          }
+        });
+      }
+    }
+  }).state('tech-home', {
+    url: '/tech-home',
+    templateUrl: 'assets/templates/tech-home.html',
+    resolve: {
+      security: function security(mainServ, $state) {
 
-                return mainServ.isTech().then(function (response) {
-                    if (response.data == "Not authorized") {
-                        $state.go('login');
-                    }
-                });
-            }
+        return mainServ.isTech().then(function (response) {
+          if (response.data == "Not authorized") {
+            $state.go('login');
+          }
+        });
+      }
 
-        }
-    });
+    }
+  });
 });

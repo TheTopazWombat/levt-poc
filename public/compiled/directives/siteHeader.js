@@ -2,18 +2,29 @@
 
 angular.module('app').directive('siteHeader', siteHeader);
 
-function siteHeader() {
+function siteHeader($rootScope) {
   return {
     templateUrl: 'app/directives/site-header.html',
     // scope: $scope,
     // controller: 'mainCtrl',
     link: function link(scope, element, attr) {
       $('.dashboard-link').on('click', function () {
-        $('.primary-nav').fadeOut(700, function () {
-          $('.primary-nav').hide(function () {
-            $('.site-header').animate({ 'margin-left': '-65vw' }, 800);
+        if ($rootScope.testUser || $rootScope.currentTech) {
+          $('.primary-nav').fadeOut(700, function () {
+            $('.primary-nav').hide(function () {
+              $('.site-header').animate({ 'margin-left': '-75vw' }, 800);
+            });
           });
-        });
+        }
+      });
+      $('.tech-dashboard-link').on('click', function () {
+        if ($rootScope.currentTech) {
+          $('.primary-nav').fadeOut(700, function () {
+            $('.primary-nav').hide(function () {
+              $('.site-header').animate({ 'margin-left': '-75vw' }, 800);
+            });
+          });
+        }
       });
 
       $('#header-img-main').on('click', function () {

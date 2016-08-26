@@ -1,0 +1,71 @@
+<div class="dashboard-subview account-subview">
+  <div class="acct-info">
+
+    <!-- <h1>{{testUser.first_name}} {{testUser.last_name}}</h1>
+    <ul>
+      <li>{{testUser.address}}</li>
+      <li>{{testUser.phone_num1}}</li>
+      <li>{{testUser.phone_num2}}</li>
+      <li>{{testUser.phone_num3}}</li>
+
+    </ul> -->
+    <!-- <button class="button">Edit</button> -->
+
+    <div class="new-account-container">
+      <div class="new-account-fields">
+        <h1>Create New Account</h1>
+        <h4>(Should be the same as the information on your warranty claim)</h4>
+
+        <span class="input">
+        <input class="input__field" type="text" id="input-1" ng-model="address_line1"/>
+        <label class="input__label input__label--color-1" for="input-1">
+          <span class="input__label-content">Street Address</span>
+        </label>
+      </span>
+      <span class="input">
+        <input class="input__field" type="text" id="input-2" ng-model="address_line2"/>
+        <label class="input__label input__label--color-1" for="input-2">
+          <span class="input__label-content">City, State, ZIP</span>
+        </label>
+      </span>
+      <span class="input">
+        <input class="input__field" type="text" id="input-3" ng-model="invoice_number"/>
+        <label class="input__label input__label--color-1" for="input-3">
+          <span class="input__label-content">Invoice Number (LEVT)</span>
+        </label>
+      </span>
+      <div class="phone-fields">
+          <span class="input phone-field">
+          <input class="input__field" type="text" id="input-4" ng-model="phone_num1"/>
+          <label class="input__label input__label--color-1" for="input-4">
+            <span class="input__label-content">Primary Phone</span>
+          </label>
+        </span>
+        <span class="input phone-field">
+        <input class="input__field" type="text" id="input-7" ng-model="phone_num2"/>
+        <label class="input__label input__label--color-1" for="input-7">
+          <span class="input__label-content">Secondary Phone</span>
+        </label>
+
+      </div>
+      <div class="model-serial-fields">
+        <span class="input phone-field">
+        <input class="input__field" type="text" id="input-9" ng-model="model_num"/>
+        <label class="input__label input__label--color-1" for="input-9">
+          <span class="input__label-content">Product Model</span>
+        </label>
+      </span>
+      <span class="input phone-field">
+      <input class="input__field" type="text" id="input-8" ng-model="serial_num"/>
+      <label class="input__label input__label--color-1" for="input-8">
+        <span class="input__label-content">Serial Number</span>
+      </label>
+      </span>
+      </div>
+      <button type="button" name="button" id="new-acct-btn" ng-click="updateCmAccount(first_name, last_name, address_line1, address_line2, invoice_number, phone_num1, phone_num2, model_num, serial_num)">Create Account</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
