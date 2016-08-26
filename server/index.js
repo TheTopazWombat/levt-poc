@@ -148,7 +148,7 @@ app.delete('/api/customers/appointments/delete/:id', cmCtrl.deleteCmAppt);
 
 
 
-var port = 3000;
+var port = config.port;
 app.listen(port, function() {
     console.log('listening on ', port);
 });
