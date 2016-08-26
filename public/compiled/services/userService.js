@@ -50,4 +50,10 @@ function userService($http) {
       data: data
     });
   };
+  this.deleteCmAppt = function (id) {
+    return $http({
+      method: 'DELETE',
+      url: 'api/customers/appointments/delete/' + id
+    });
+  };
 }

@@ -1,12 +1,12 @@
-<div class="accordian jobs-accordian">
+<div class="accordian appts-accordian">
     <div class="accordian-header">
         <div class="accordian-selector active" id="current-select">
-            <h1>{{myJobs.length}}</h1>
-            <h2>Current Claims</h2>
+            <h1>{{unmetCmAppts.length}}</h1>
+            <h2>Current Appointments</h2>
         </div>
         <div class="accordian-selector" id="old-select">
             <h1>0</h1>
-            <h2>Old Claims</h2>
+            <h2>Past Appointments</h2>
         </div>
 
     </div>
@@ -18,16 +18,19 @@
 
       </div> -->
       <uib-accordion>
-      <div class="mini-claim" ng-repeat="job in myJobs" uib-accordion-group class="panel-default" heading="{{job.model_num}}">
-            <h4>{{job.invoice}}</h4>
+      <div class="mini-claim" ng-repeat="appt in unmetCmAppts" uib-accordion-group class="panel-default" heading="{{appt.display_date}}">
+            <h4>{{appt.job_invoice}}</h4>
+            <h4>{{appt.time_from_now}}</h4>
+            <!-- <h4>{{job.invoice}}</h4>
             <h4>{{job.model_num}}</h4>
             <h4>{{job.serial_num}}</h4>
             <p>{{job.status}}</p>
             <p>{{job.next_step}}</p>
-            <p>{{job.tracking_num}}</p>
-            <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">New Appointment</button>
+            <p>{{job.tracking_num}}</p> -->
+            <!-- <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">New Appointment</button>
             <br>
-            <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button>
+            <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button> -->
+            <button type="button" id="cancel-appt" ng-click="deleteCmAppt(appt.id)">Cancel</button>
 
         </div>
     </uib-accordion>

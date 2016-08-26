@@ -49,4 +49,10 @@ angular.module('app')
         data: data,
       });
     };
+    this.deleteCmAppt = id => {
+      return $http({
+        method: 'DELETE',
+        url: 'api/customers/appointments/delete/' + id,
+      });
+    };
   }

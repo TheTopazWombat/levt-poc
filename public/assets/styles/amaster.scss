@@ -160,6 +160,16 @@ body {
     position: relative;
     z-index: 0;
 }
+
+.test-container-landing-name {
+  display: flex;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    left: 50%;
+    top: 250px;
+}
+
 #test {
     z-index: 1;
     position: absolute;
@@ -168,7 +178,8 @@ body {
     text-align: center;
     color: #fff;
     font-family: "Roboto";
-    font-size: 2rem;
+    font-size: 3em;
+    font-weight: 900;
     /*border: 1px solid #fff;*/
     /*background-color:rgba(0, 0, 0, 0.5);*/
     padding: 5px 5px 5px 5px;

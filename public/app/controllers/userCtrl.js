@@ -40,16 +40,16 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
 
 
     $scope.beforeRender = function($view, $dates, $leftDate, $upDate, $rightDate) {
-        var index = Math.floor(Math.random() * $dates.length);
-        $dates[index].selectable = false;
-        // console.log($dates);
-        for (var i in $dates) {
-            for (var k in $scope.apptsTest) {
-                if (moment($dates[i].utcDateValue)._d === $scope.apptsTest[k]) {
-                    $dates[i].selectable = false;
-                }
-            }
-        }
+        // var index = Math.floor(Math.random() * $dates.length);
+        // $dates[index].selectable = false;
+        // // console.log($dates);
+        // for (var i in $dates) {
+        //     for (var k in $scope.apptsTest) {
+        //         if (moment($dates[i].utcDateValue)._d === $scope.apptsTest[k]) {
+        //             $dates[i].selectable = false;
+        //         }
+        //     }
+        // }
         // console.log(moment($dates[1].utcDateValue)._d);
 
     };
@@ -73,7 +73,7 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
     $scope.openCalander = (jobInvoice, techId) => {
         $scope.newApptObj.job_invoice = jobInvoice;
         $scope.newApptObj.tech_id = techId;
-        console.log($scope.newApptObj);
+        // console.log($scope.newApptObj);
         // console.log($scope.tempInvoice, $scope.tempTechId);
         ngDialog.open({
             template: './assets/templates/modals/cm-calander.html',
@@ -84,21 +84,30 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
     $scope.requestNewAppt = () => {
         console.log($scope.newApptObj);
 
-        userService.requestNewAppt($scope.newApptObj);
+        userService.requestNewAppt($scope.newApptObj).then(() => {
+          // $scope.unmetCmAppts = [];
+          // $scope.getAllCmAppointments();
+        });
             // .then((response) => {
             //   console.log(response);
             // });
+
     };
     $scope.unmetCmAppts = [];
     $scope.getAllCmAppointments = () => {
       userService.getAllCmAppointments($rootScope.testUser.id).then(response => {
         let appts = response.data;
-        for (var i = 0; i < appts.length; i++) {
+        for (let i = 0; i < appts.length; i++) {
           if(!appts[i].appt_met) {
             $scope.unmetCmAppts.push(appts[i]);
           }
         }
-        console.log($scope.unmetCmAppts);
+        for (let i = 0; i < $scope.unmetCmAppts.length; i++) {
+          $scope.unmetCmAppts[i].display_date = moment($scope.unmetCmAppts[i].appt_time).format('MMMM Do YYYY, h:mm a');
+          $scope.unmetCmAppts[i].time_from_now = moment($scope.unmetCmAppts[i].appt_time).fromNow();
+        }
+        console.log("appts:", $scope.unmetCmAppts);
+
       });
     };
 
@@ -136,9 +145,9 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
         serial_num: serial_num
 
       };
-      console.log(dataObj);
+      // console.log(dataObj);
       userService.createNewCmAccount(dataObj).then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         ngDialog.open({
             template: './assets/templates/modals/account-created.html',
             scope: $scope,
@@ -156,6 +165,19 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
             }
 
         });
+      });
+    };
+
+    $scope.deleteCmAppt = id => {
+      userService.deleteCmAppt(id).then(() => {
+        for (var i = 0; i < $scope.unmetCmAppts.length; i++) {
+          if ($scope.unmetCmAppts[i].id === id) {
+            $scope.unmetCmAppts.splice(i, 1);
+            console.log('cut it', $scope.unmetCmAppts);
+          }
+        }
+        // $scope.unmetCmAppts = [];
+        // getAllCmAppointments();
       });
     };
 

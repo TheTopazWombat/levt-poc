@@ -5,7 +5,7 @@ angular.module('app')
     return {
       templateUrl: 'app/directives/site-header.html',
       // scope: $scope,
-      controller: 'mainCtrl',
+      // controller: 'mainCtrl',
       link: function(scope, element, attr){
         $('.dashboard-link').on('click', () => {
           $('.primary-nav').fadeOut(700, () => {

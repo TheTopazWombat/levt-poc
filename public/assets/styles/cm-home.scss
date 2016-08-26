@@ -13,7 +13,7 @@
         width: 48%;
         text-align: center;
         transition: all 0.3s ease-in-out;
-        border-radius: 5px;
+        border-radius: 2px;
         color: #fff;
         max-height: 37px;
     }
@@ -36,8 +36,13 @@
         // justify-content: center;
     }
 }
+
+.cm-jobs-container {
+  display: inline-block;
+}
+
 .cm-job {
-  float: left;
+  display: inline-block;
   width: 300px;
   min-height: 250px;
   // margin: 50px auto;

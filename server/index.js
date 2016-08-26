@@ -127,10 +127,13 @@ app.post('/api/tech/manufacturers/create', techCtrl.createNewManuf);
 app.get('/api/cm/appointments/:id', userCtrl.getAllCmAppointments);
 app.post('/api/cm/requestappt', userCtrl.createNewAppt, userCtrl.getAllCmAppointments);
 app.put('/api/cm/jobs/update', userCtrl.updateJobInfoCm);
-// vv
+// ***********************
 // app.post('/api/customers/accounts/new', userCtrl.createNewCmAccountReq);
 // ^^ THIS VERSION CREATES A CUSTOMER REQUEST, WILL IMPLEMENT IF I HAVE TIME AS THIS IS A MORE FORWARD-THINKING, FOOLPROOF SOLUTION. RIGHT NOW IT TAKES TOO MUCH FRONT END WORK TO BE EFFECTIVE
 app.post('/api/customers/accounts/new', userCtrl.createNewCmAccount);
+
+app.delete('/api/customers/appointments/delete/:id', cmCtrl.deleteCmAppt);
+
 
 
 

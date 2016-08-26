@@ -6,7 +6,7 @@ function siteHeader() {
   return {
     templateUrl: 'app/directives/site-header.html',
     // scope: $scope,
-    controller: 'mainCtrl',
+    // controller: 'mainCtrl',
     link: function link(scope, element, attr) {
       $('.dashboard-link').on('click', function () {
         $('.primary-nav').fadeOut(700, function () {

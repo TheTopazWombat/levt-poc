@@ -1,12 +1,10 @@
 angular.module('app')
-  .directive('cmClaimsAccordian', cmClaimsAccordian);
+  .directive('cmApptsAccordion', cmApptsAccordion);
 
-  function cmClaimsAccordian() {
+  function cmApptsAccordion() {
 
     return {
-      templateUrl: 'app/directives/cm-claims-accordian.html',
-      // scope: $scope,
-      // controller: 'userCtrl',
+      templateUrl: 'app/directives/cm-appts-accordion.html',
 
       link: function(scope, element, attr) {
         $('#old-select').click(function() {
@@ -30,23 +28,7 @@ angular.module('app')
           }, 500);
         });
 
-        // console.log('hi Isaac');
-
-
-        // $('#work').click(function() {
-        //   console.log('hi craig');
-        //   $('.job-expand').animate({right: '200px'});
-        // });
-
-
-
-        // $('.mini-claim').click(function() {
-        //   $(this).animate({
-        //     "transform": "translate(50px,100px)",
-        //     "transition": "transform 500ms"
-        //   });
-        // });
-
+        // *** Accordion switch ***
 
         $('.accordian-selector').click(function() {
           let flag = false;
