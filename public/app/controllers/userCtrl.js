@@ -10,6 +10,21 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
         });
 
     };
+    $("#testimonial_carosule").owlCarousel({
+
+                  slideSpeed : 300,
+                  paginationSpeed : 400,
+                  singleItem:true,
+                  autoPlay : true,
+                  transitionStyle : "backSlide",
+                  // "singleItem:true" is a shortcut for:
+                  // items : 1,
+                  // itemsDesktop : false,
+                  // itemsDesktopSmall : false,
+                  // itemsTablet: false,
+                  // itemsMobile : false
+
+              });
 
     $scope.portfoliolist = mainServ.portfolioList;
 
@@ -189,7 +204,7 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
       ngDialog.open({
         template: './assets/templates/modals/job-update-confirmation.html',
         scope: $scope
-      })
+      });
     };
 
 }

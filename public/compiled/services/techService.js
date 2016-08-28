@@ -67,4 +67,10 @@ function techService($http) {
       data: dataObj
     });
   };
+  this.getAllTechJobs = function (id) {
+    return $http({
+      method: 'GET',
+      url: '/api/tech/jobs/' + id
+    });
+  };
 }

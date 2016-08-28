@@ -28,7 +28,12 @@ angular.module('app')
             })
             .state('login', {
                 url: '/login',
-                templateUrl: 'assets/templates/login.html'
+                templateUrl: 'assets/templates/login.html',
+                resolve: {
+                  hidePortfolio: function() {
+                    $('.portfolio_area').hide();
+                  },
+                }
             })
             .state('cm-dashboard', {
                 url: '/cm-dashboard',
@@ -47,6 +52,10 @@ angular.module('app')
 
                         },
 
+                        hidePortfolio: function() {
+                          $('.portfolio_area').hide();
+                        }
+
                 }
             })
 
@@ -54,7 +63,12 @@ angular.module('app')
 
             .state('cm-dashboard.main', {
               url: '/main',
-              templateUrl: 'assets/templates/cm-dashboard-main.html'
+              templateUrl: 'assets/templates/cm-dashboard-main.html',
+              resolve: {
+                hidePortfolio: function() {
+                  $('.portfolio_area').hide();
+                },
+              }
 
             })
                 .state('cm-dashboard.main.claims', {
@@ -86,13 +100,19 @@ angular.module('app')
                                 });
 
                         },
+                        hidePortfolio: function() {
+                          $('.portfolio_area').hide();
+                        },
 
                 }
             })
             .state('my-account', {
               url: '/my-account',
               templateUrl: 'assets/templates/my-account.html',
-              // resolve: {
+              resolve: {
+                hidePortfolio: function() {
+                  $('.portfolio_area').hide();
+                },
               //   security: (mainServ, $state, $rootScope) => {
               //     // console.log(err);
               //     if (!$rootScope.testUser) {
@@ -104,7 +124,7 @@ angular.module('app')
               //       $state.go('my-account.info');
               //     }
               //   }
-              // }
+              }
             })
               .state('my-account.info', {
                 url: '/info',
@@ -116,7 +136,10 @@ angular.module('app')
                         $state.go('my-account.new');
                       }
                     });
-                  }
+                  },
+                  hidePortfolio: function() {
+                    $('.portfolio_area').hide();
+                  },
                 }
               })
               .state('my-account.new', {
@@ -127,7 +150,10 @@ angular.module('app')
                     ngDialog.open({
                       templateUrl: 'assets/templates/modals/new-account-greeting.html'
                     });
-                  }
+                  },
+                  hidePortfolio: function() {
+                    $('.portfolio_area').hide();
+                  },
                 }
 
               })
@@ -145,14 +171,37 @@ angular.module('app')
                                     }
                                 });
 
-                        }
+                        },
+                        hidePortfolio: function() {
+                          $('.portfolio_area').hide();
+                        },
                 },
             })
             .state('tech-dashboard.main', {
               url: '/tech-dashboard/main',
-              templateUrl: 'assets/templates/tech-views/tech-dashboard.main.html'
+              templateUrl: 'assets/templates/tech-views/tech-dashboard.main.html',
+              resolve: {
+                hidePortfolio: function() {
+                  $('.portfolio_area').hide();
+                },
+              }
 
             })
+            .state('tech-dashboard.main.jobs', {
+              url: '/tech-dashboard/jobs',
+              templateUrl: 'assets/templates/tech-views/tech-dashboard-main.jobs.html'
+            })
+            .state('tech-dashboard.main.appts', {
+              url: '/tech-dashboard/appointments',
+              templateUrl: 'assets/templates/tech-views/tech-dashboard-main.appts.html'
+            })
+
+        // ACCOUNT DASHBOARD AND SUBVIEWS
+        .state('tech-dashboard.main.manufacturers', {
+          url: '/tech-dashboard/manuf',
+          templateUrl: 'assets/templates/tech-views/tech-dashboard-main.manufacturers.html'
+
+        })
 
             .state('tech-home', {
                 url: '/tech-home',
@@ -168,7 +217,10 @@ angular.module('app')
                                     }
                                 });
 
-                        }
+                        },
+                        hidePortfolio: function() {
+                          $('.portfolio_area').hide();
+                        },
 
                 }
             });

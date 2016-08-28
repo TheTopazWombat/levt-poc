@@ -25,7 +25,12 @@ angular.module('app')
     resolve: {}
   }).state('login', {
     url: '/login',
-    templateUrl: 'assets/templates/login.html'
+    templateUrl: 'assets/templates/login.html',
+    resolve: {
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
+      }
+    }
   }).state('cm-dashboard', {
     url: '/cm-dashboard',
     templateUrl: 'assets/templates/cm-dashboard.html',
@@ -39,6 +44,10 @@ angular.module('app')
             $state.go('login');
           }
         });
+      },
+
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
 
     }
@@ -48,7 +57,12 @@ angular.module('app')
 
   .state('cm-dashboard.main', {
     url: '/main',
-    templateUrl: 'assets/templates/cm-dashboard-main.html'
+    templateUrl: 'assets/templates/cm-dashboard-main.html',
+    resolve: {
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
+      }
+    }
 
   }).state('cm-dashboard.main.claims', {
     url: '/claims',
@@ -74,12 +88,20 @@ angular.module('app')
             $state.go('login');
           }
         });
+      },
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
 
     }
   }).state('my-account', {
     url: '/my-account',
-    templateUrl: 'assets/templates/my-account.html'
+    templateUrl: 'assets/templates/my-account.html',
+    resolve: {
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
+      }
+    }
   }).state('my-account.info', {
     url: '/info',
     templateUrl: 'assets/templates/my-account.info.html',
@@ -90,6 +112,9 @@ angular.module('app')
             $state.go('my-account.new');
           }
         });
+      },
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
     }
   }).state('my-account.new', {
@@ -100,6 +125,9 @@ angular.module('app')
         ngDialog.open({
           templateUrl: 'assets/templates/modals/new-account-greeting.html'
         });
+      },
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
     }
 
@@ -114,11 +142,32 @@ angular.module('app')
             $state.go('login');
           }
         });
+      },
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
     }
   }).state('tech-dashboard.main', {
     url: '/tech-dashboard/main',
-    templateUrl: 'assets/templates/tech-views/tech-dashboard.main.html'
+    templateUrl: 'assets/templates/tech-views/tech-dashboard.main.html',
+    resolve: {
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
+      }
+    }
+
+  }).state('tech-dashboard.main.jobs', {
+    url: '/tech-dashboard/jobs',
+    templateUrl: 'assets/templates/tech-views/tech-dashboard-main.jobs.html'
+  }).state('tech-dashboard.main.appts', {
+    url: '/tech-dashboard/appointments',
+    templateUrl: 'assets/templates/tech-views/tech-dashboard-main.appts.html'
+  })
+
+  // ACCOUNT DASHBOARD AND SUBVIEWS
+  .state('tech-dashboard.main.manufacturers', {
+    url: '/tech-dashboard/manuf',
+    templateUrl: 'assets/templates/tech-views/tech-dashboard-main.manufacturers.html'
 
   }).state('tech-home', {
     url: '/tech-home',
@@ -131,6 +180,9 @@ angular.module('app')
             $state.go('login');
           }
         });
+      },
+      hidePortfolio: function hidePortfolio() {
+        $('.portfolio_area').hide();
       }
 
     }

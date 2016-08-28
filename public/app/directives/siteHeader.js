@@ -7,16 +7,16 @@ angular.module('app')
       // scope: $scope,
       // controller: 'mainCtrl',
       link: function(scope, element, attr){
-        $('.dashboard-link').on('click', () => {
+        $('.dashboard-link').on('click', function() {
           if ($rootScope.testUser || $rootScope.currentTech){$('.primary-nav').fadeOut(700, () => {
-            $('.primary-nav').hide(() => {
+            $('.primary-nav').hide(function() {
               $('.site-header').animate({'margin-left': '-75vw'}, 800);
             });
           });}
         });
-        $('.tech-dashboard-link').on('click', () => {
-          if ( $rootScope.currentTech){$('.primary-nav').fadeOut(700, () => {
-            $('.primary-nav').hide(() => {
+        $('.tech-dashboard-link').on('click', function() {
+          if ( $rootScope.currentTech){$('.primary-nav').fadeOut(700, function()  {
+            $('.primary-nav').hide(function() {
               $('.site-header').animate({'margin-left': '-75vw'}, 800);
             });
           });}
@@ -29,6 +29,14 @@ angular.module('app')
             $('.primary-nav').fadeIn(700);
           });
         });
+        //
+        // $('.dashboard-link').click(function() {
+        //   $('.portfolio_area').css("display", 'none');
+        // });
+        //
+        // $('#header-img-main').click(function() {
+        //   $('.portfolio_area').css("display", "block");
+        // });
 
       }
 

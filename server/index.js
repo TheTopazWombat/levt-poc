@@ -116,6 +116,7 @@ app.get('/appointments', techCtrl.getAllAppointments);
 app.get('/customers/all', techCtrl.getAllCustomers);
 app.get('/api/tech/appointments/:id', techCtrl.getAllTechAppointments);
 app.get('/api/tech', techCtrl.getTechInfo);
+app.get('/api/tech/jobs/:id', techCtrl.getAllTechJobs);
 
 app.put('/api/tech/appointments/update', techCtrl.updateTechAppointment);
 

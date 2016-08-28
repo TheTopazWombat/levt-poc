@@ -10,6 +10,14 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
             $scope.getCmJobs($rootScope.testUser.id);
         });
     };
+    $("#testimonial_carosule").owlCarousel({
+
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true,
+        autoPlay: true,
+        transitionStyle: "backSlide"
+    });
 
     $scope.portfoliolist = mainServ.portfolioList;
 

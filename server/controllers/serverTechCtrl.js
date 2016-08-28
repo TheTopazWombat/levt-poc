@@ -63,5 +63,11 @@ module.exports = {
         console.log(err, response);
         res.set(200).send('New Manufacturer Added');
       });
+    },
+    getAllTechJobs: function(req, res, next) {
+      console.log(req.params.id);
+      db.get_all_tech_jobs(req.params.id, function(err, response) {
+        res.set(200).json(response);
+      });
     }
 };

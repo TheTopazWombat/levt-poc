@@ -3,6 +3,11 @@ angular.module('app')
 
 function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDialog) {
   console.log($rootScope.testUser);
+  $scope.getAllTechJobs = (id) => {
+    techService.getAllTechJobs(id).then(response => {
+      console.log(response);
+    });
+  };
     $scope.getJobByInvoice = (invoice, apptTime, apptMet, apptPhone, apptId) => {
         techService.getJobByInvoice(invoice)
             .then(response => {

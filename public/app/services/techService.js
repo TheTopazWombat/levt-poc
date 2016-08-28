@@ -66,4 +66,10 @@ angular.module('app')
         data: dataObj
       });
     };
+    this.getAllTechJobs = id => {
+      return $http({
+        method: 'GET',
+        url: '/api/tech/jobs/' + id,
+      });
+    };
   }

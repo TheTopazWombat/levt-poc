@@ -32,6 +32,14 @@ function siteHeader($rootScope) {
           $('.primary-nav').fadeIn(700);
         });
       });
+      //
+      // $('.dashboard-link').click(function() {
+      //   $('.portfolio_area').css("display", 'none');
+      // });
+      //
+      // $('#header-img-main').click(function() {
+      //   $('.portfolio_area').css("display", "block");
+      // });
     }
 
   };
