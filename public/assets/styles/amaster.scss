@@ -138,6 +138,7 @@ header {
 }
 body {
     /*background: #90AFC5;*/
+    min-height: 100vh;
 }
 
 /*LANDING VIEW*/
@@ -156,6 +157,7 @@ body {
     position: relative;
     z-index: 0;
     opacity: .8;
+    height: 80vh;
 }
 .video video {
     position: relative;
@@ -231,6 +233,10 @@ body {
 }
 
 /*LOGIN VIEW*/
+
+.login-section {
+  height:70vh;
+}
 
 .login-container {
     width: 300px;

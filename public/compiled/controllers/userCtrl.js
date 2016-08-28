@@ -11,6 +11,10 @@ function userCtrl($scope, userService, $rootScope, mainServ, ngDialog, loginServ
         });
     };
 
+    $scope.portfoliolist = mainServ.portfolioList;
+
+    console.log($scope.portfoliolist);
+
     $scope.hideValue = true;
 
     $scope.getMyCmInfo();

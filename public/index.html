@@ -8,6 +8,16 @@
     <!-- <link rel="stylesheet" href="./assets/css/normalize.css" media="screen" title="no title" charset="utf-8"> -->
     <link rel="icon" href="./assets/images/levt-thumbnail.png">
     <link rel="stylesheet" href="./assets/third-party-libraries/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/third-party-libraries/animate.css">
+
+    <!-- font awesome-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/third-party-libraries/skillset.css">
+
+    <link rel="stylesheet" type="text/css" href="./assets/third-party-libraries/owl.carousel.css">
+
+    <link rel="stylesheet" type="text/css" href="./assets/third-party-libraries/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="./assets/third-party-libraries/owl.theme.css">
     <link rel="stylesheet" href="./assets/third-party-libraries/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
     <link rel="stylesheet" href="./assets/third-party-libraries/ui-bootstrap-custom-2.1.2-csp.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./compiled/styles.css" media="screen" title="no title" charset="utf-8">
@@ -27,7 +37,44 @@
 
         <div>
         </div> -->
+    <div class="portfolio_area" ng-controller="userCtrl">
+      <div class="container" id="portfolio-container">
+          <div class="portfolio_section">
+              <div class="col-md-12 portfolio_top">
+                  <h1>Portfolio</h1>
+                  <p>OUR TEAM INCLUDES GREAT THINKERS. YOU WOULD LOVE TO WORK WITH THEM AS THEY ARE JUST AMAZING PEOPLE.</p>
+              </div>
+          </div>
+
+        <ul id="filters" class="clearfix">
+          <li><span class="filter active" data-filter="scooter car bike">All</span></li>
+          <li><span class="filter" data-filter="bike">Bike</span></li>
+          <li><span class="filter" data-filter="scooter">Scooter</span></li>
+          <li><span class="filter" data-filter="car">Car</span></li>
+        </ul>
+
+        <div id="portfoliolist">
+
+          <div ng-repeat="item in portfoliolist">
+            <div class="portfolio {{item.logo}}" data-cat="{{item.logo}}">
+            <div class="portfolio-wrapper">
+              <img src="{{item.img}}" alt="" />
+              <div class="label">
+                <div class="label-text">
+                  <a class="text-title">{{item.title_text}}</a>
+                  <span class="text-category">{{item.logo}}</span>
+                </div>
+                <div class="label-bg"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+    </div>
     <sitefooter></sitefooter>
+
 </main>
 
 
@@ -40,6 +87,8 @@
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
 <script src="./bootstrap.js" charset="utf-8"></script>
 <!-- Latest compiled and minified CSS -->
@@ -62,6 +111,22 @@
 <script type="text/javascript" src="./assets/third-party-libraries/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
 <script type="text/javascript" src="./assets/third-party-libraries/ui-bootstrap-custom-2.1.2.min.js"></script>
 <script type="text/javascript" src="./assets/third-party-libraries/ui-bootstrap-custom-tpls-2.1.2.min.js"></script>
+<script src="./assets/third-party-libraries/js/wow.js"></script>
+
+    <script src="./assets/third-party-libraries/js/jquery.nicescroll.js"></script>
+
+    <script type="text/javascript" src="./assets/third-party-libraries/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="./assets/third-party-libraries/js/jquery.mixitup.min.js"></script>
+    <script src="./assets/third-party-libraries/js/imagesloaded.pkgd.min.js"></script>
+
+   <script src="./assets/third-party-libraries/js/skillset.js"></script>
+
+   <script src="./assets/third-party-libraries/js/owl.carousel.js"></script>
+
+
+   <script src="./assets/third-party-libraries/js/scrollupto.js"></script>
+   <script type="text/javascript" src="./assets/third-party-libraries/js/main.js"></script>
+   <script type="text/javascript" src="./assets/third-party-libraries/js/jquery.ba-cond.min.js"></script>
 <script src="./compiled/app.js" charset="utf-8"></script>
 <script src="./compiled/services/mainServ.js" charset="utf-8"></script>
 <script src="./compiled/services/userService.js" charset="utf-8"></script>

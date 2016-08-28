@@ -1,0 +1,30 @@
+<!-- <div class="dashboard-header">
+    <div class="levt-logo">
+        <img src="assets/images/toplogo2.png" alt="" />
+    </div>
+</div> -->
+
+<div class="dashboard-contents" ng-controller="userCtrl">
+    <div class="sidebar" ng-controller="techCtrl">
+        <!-- <div id="levt-thumb"><img src="assets/images/levt-thumbnail.png" /></div> -->
+
+
+
+        <ul id="menu" class="menu-main">
+            <li class="trigger">
+                <a><span class="glyphicon glyphicon-dashboard"></span><span>Dashboard</span></a>
+
+            </li>
+            <li class="trigger">
+                <a><span class="glyphicon glyphicon-user"></span><span>Account</span></a>
+
+            </li>
+            <li class="trigger">
+                <a ui-sref="landing" id="header-img-main"><span class="glyphicon glyphicon-home"></span><span>Home</span></a>
+
+            </li>
+        </ul>
+    </div>
+
+    <ui-view></ui-view>
+</div>

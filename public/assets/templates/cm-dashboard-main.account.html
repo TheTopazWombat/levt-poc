@@ -11,11 +11,10 @@
     </ul> -->
     <!-- <button class="button">Edit</button> -->
 
-    <div class="new-account-container">
-      <div class="new-account-fields">
+    <div class="new-account-container" >
+      <div class="new-account-fields" id="subview-account-update">
         <h1>Modify Your Account</h1>
         <h4>(Should be the same as the information on your warranty claim)</h4>
-
         <span class="input">
         <input class="input__field" type="text" id="input-1" ng-model="address_line1"/>
         <label class="input__label input__label--color-1" for="input-1">
@@ -62,7 +61,7 @@
       </label>
       </span>
       </div>
-      <button type="button" name="button" id="new-acct-btn" ng-click="updateCmAccount(first_name, last_name, address_line1, address_line2, invoice_number, phone_num1, phone_num2, model_num, serial_num)">Create Account</button>
+      <button type="button" name="button" id="new-acct-btn" ng-click="updateCmAccount(first_name, last_name, address_line1, address_line2, invoice_number, phone_num1, phone_num2, model_num, serial_num)">Update</button>
       </div>
     </div>
 

@@ -103,9 +103,9 @@ angular.module('app')
       }
     }
 
-  }).state('tech-sched', {
-    url: '/tech-sched',
-    templateUrl: 'assets/templates/tech-sched.html',
+  }).state('tech-dashboard', {
+    url: '/tech-dashboard',
+    templateUrl: 'assets/templates/tech-views/tech-dashboard.html',
     resolve: {
       security: function security(mainServ, $state) {
 
@@ -116,6 +116,10 @@ angular.module('app')
         });
       }
     }
+  }).state('tech-dashboard.main', {
+    url: '/tech-dashboard/main',
+    templateUrl: 'assets/templates/tech-views/tech-dashboard.main.html'
+
   }).state('tech-home', {
     url: '/tech-home',
     templateUrl: 'assets/templates/tech-home.html',
