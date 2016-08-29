@@ -1,70 +1,52 @@
 <div class="dashboard-subview account-subview">
-  <div class="acct-info">
+  <div ng-controller="techCtrl">
+      <div class="welcome">
+        <!-- <h1>Welcome back, Isaac!</h1> -->
+          <!-- <p>You have <span id="appt-count">{{numOfAppts}}</span> appointments today, better get on it!</p> -->
+      </div>
+      <div class="manuf-container"><div class="new-manuf">
+        <h1>Add New Manufacturer</h1>
+        <hr>
+          <span class="input manuf-field">
+            <input class="input__field" type="text" id="input-6" ng-model="manuf_name"/>
+            <label class="input__label input__label--color-1" for="input-6">
+              <span class="input__label-content">Manufacturer Name</span>
+            </label>
+          </span>
+          <span class="input manuf-field">
+            <input class="input__field" type="text" id="input-5" ng-model="tech_assigned"/>
+            <label class="input__label input__label--color-1" for="input-5">
+              <span class="input__label-content">Tech Assigned</span>
+            </label>
+          </span>
 
-    <!-- <h1>{{testUser.first_name}} {{testUser.last_name}}</h1>
-    <ul>
-      <li>{{testUser.address}}</li>
-      <li>{{testUser.phone_num1}}</li>
-      <li>{{testUser.phone_num2}}</li>
-      <li>{{testUser.phone_num3}}</li>
-
-    </ul> -->
-    <!-- <button class="button">Edit</button> -->
-
-    <div class="new-account-container" >
-      <div class="new-account-fields" id="subview-account-update">
-        <h1>Modify Your Account</h1>
-        <h4>(Should be the same as the information on your warranty claim)</h4>
-        <span class="input">
-        <input class="input__field" type="text" id="input-1" ng-model="address_line1"/>
+        <span class="input manuf-field">
+        <input class="input__field" type="text" id="input-1" ng-model="phone_num"/>
         <label class="input__label input__label--color-1" for="input-1">
-          <span class="input__label-content">Street Address</span>
+          <span class="input__label-content">Phone Number</span>
         </label>
       </span>
-      <span class="input">
-        <input class="input__field" type="text" id="input-2" ng-model="address_line2"/>
+      <span class="input manuf-field">
+        <input class="input__field" type="text" id="input-2" ng-model="manuf_warranty"/>
         <label class="input__label input__label--color-1" for="input-2">
-          <span class="input__label-content">City, State, ZIP</span>
+          <span class="input__label-content">Manufacturer's Warranty</span>
         </label>
       </span>
-      <span class="input">
-        <input class="input__field" type="text" id="input-3" ng-model="invoice_number"/>
+      <span class="input manuf-field">
+        <input class="input__field" type="text" id="input-3" ng-model="website"/>
         <label class="input__label input__label--color-1" for="input-3">
-          <span class="input__label-content">Invoice Number (LEVT)</span>
+          <span class="input__label-content">Website</span>
         </label>
       </span>
-      <div class="phone-fields">
-          <span class="input phone-field">
-          <input class="input__field" type="text" id="input-4" ng-model="phone_num1"/>
+          <span class="input manuf-field">
+          <input class="input__field" type="text" id="input-4" ng-model="hours_of_op"/>
           <label class="input__label input__label--color-1" for="input-4">
-            <span class="input__label-content">Primary Phone</span>
+            <span class="input__label-content">Hours</span>
           </label>
         </span>
-        <span class="input phone-field">
-        <input class="input__field" type="text" id="input-7" ng-model="phone_num2"/>
-        <label class="input__label input__label--color-1" for="input-7">
-          <span class="input__label-content">Secondary Phone</span>
-        </label>
-
-      </div>
-      <div class="model-serial-fields">
-        <span class="input phone-field">
-        <input class="input__field" type="text" id="input-9" ng-model="model_num"/>
-        <label class="input__label input__label--color-1" for="input-9">
-          <span class="input__label-content">Product Model</span>
-        </label>
-      </span>
-      <span class="input phone-field">
-      <input class="input__field" type="text" id="input-8" ng-model="serial_num"/>
-      <label class="input__label input__label--color-1" for="input-8">
-        <span class="input__label-content">Serial Number</span>
-      </label>
-      </span>
-      </div>
-      <button type="button" name="button" id="new-acct-btn" ng-click="updateCmAccount(first_name, last_name, address_line1, address_line2, invoice_number, phone_num1, phone_num2, model_num, serial_num)">Update</button>
-      </div>
-    </div>
-
+      <button type="button" name="button" id="new-acct-btn" ng-click="createNewManuf(manuf_name, tech_assigned, phone_num, manuf_warranty, website, hours_of_op)">Add New MF</button>
+    </div></div>
 
   </div>
+
 </div>

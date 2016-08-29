@@ -6,24 +6,38 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
   console.log($rootScope.testUser);
   $scope.getAllTechJobs = function (id) {
     techService.getAllTechJobs(id).then(function (response) {
-      console.log(response);
+      $scope.techJobs = response.data;
+      console.log($scope.techJobs);
     });
+  };
+  $scope.clear = function () {
+    $scope.searchInvoice = '';
   };
   $scope.getJobByInvoice = function (invoice, apptTime, apptMet, apptPhone, apptId) {
     techService.getJobByInvoice(invoice).then(function (response) {
       // console.log("More info:", response, apptTime, apptMet, apptPhone);
-      $scope.customer = response;
+      for (var prop in response) {
+        if (response[prop] === 'null') {
+          response[prop] = 'No Value Entered';
+        }
+      }
+      $scope.currentCmJob = response;
+      console.log($scope.currentCmJob);
       ngDialog.open({
         template: './assets/templates/modals/more-info-job.html',
         scope: $scope
       });
-      $scope.customer.appt_time = moment(apptTime).format('MMMM Do YYYY, h:mm a');
-      $scope.customer.appt_met = apptMet;
+      if (apptTime) {
+        $scope.currentCmJob.appt_time = moment(apptTime).format('MMMM Do YYYY, h:mm a');
+      } else {
+        $scope.currentCmJob.appt_time = "None scheduled";
+      }
+      $scope.currentCmJob.appt_met = apptMet;
       if (apptPhone) {
         $scope.customer.appt_phone = apptPhone;
       }
-      $scope.customer.appt_id = apptId;
-      console.log("customer:", $scope.customer);
+      $scope.currentCmJob.appt_id = apptId;
+      console.log("customer:", $scope.currentCmJob);
     });
   };
   $scope.getMyTechInfo = function () {
@@ -36,6 +50,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       // $scope.getCmJobs($rootScope.testUser.id);
       // console.log($rootScope.currentTech.tech_assigned);
       $scope.getAllTechAppointments($rootScope.currentTech.tech_assigned);
+      $scope.getAllTechJobs($rootScope.currentTech.tech_assigned);
     });
   };
   $scope.getMyTechInfo();
@@ -65,7 +80,6 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
     techService.getAllAppointments().then(function (response) {
       $scope.appointments = response;
       // console.log($scope.appointments);
-      $scope.numOfAppts = $scope.appointments.length;
     });
   };
   $scope.pastAppts = [];
@@ -77,6 +91,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       var unmetAppts = [];
       var techAppointments = response;
       console.log(techAppointments);
+
       for (var i = 0; i < techAppointments.length; i++) {
         if (!techAppointments[i].isMet) {
           unmetAppts.push(techAppointments[i]);
@@ -96,6 +111,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       } else {
         $scope.missedApptsMessage = "Oh no! You missed these appointments!";
       }
+      $scope.numOfAppts = unmetAppts.length;
     });
     // console.log($scope.pastAppts, $scope.todayAppts, $scope.futureAppts);
   };
@@ -128,7 +144,20 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       hours_of_op: hours_of_op
     };
     console.log(dataObj);
+    for (var prop in dataObj) {
+      if (!dataObj[prop]) {
+        ngDialog.open({
+          template: './assets/templates/modals/form-error.html',
+          scope: $scope
+        });
+        return;
+      }
+    }
     techService.createNewManuf(dataObj).then(function (response) {
+      ngDialog.open({
+        template: './assets/templates/modals/new-manuf-created.html',
+        scope: $scope
+      });
       console.log(response.data);
       console.log($scope.manuf_name);
       $scope.manuf_name = '';
@@ -137,6 +166,22 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       $scope.manuf_warranty = '';
       $scope.website = '';
       $scope.hours_of_op = '';
+    });
+  };
+
+  var clearEmail = function clearEmail() {
+    $scope.emailObj = null;
+    return alert("email received!");
+  };
+
+  $scope.sendCmEmail = function (emailObj) {
+    console.log(emailObj);
+    techService.sendEmail({
+      toField: emailObj.toField,
+      subjectField: emailObj.subjectField,
+      textField: emailObj.textField
+    }).then(function (response) {
+      clearEmail();
     });
   };
 }

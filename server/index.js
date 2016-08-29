@@ -11,6 +11,8 @@ var connectionString = config.connectionString;
 
 var app = module.exports = express();
 
+var nodemailer = require('nodemailer');
+
 
 app.use(session({
     secret: config.sessionSecret
@@ -18,6 +20,9 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+
 
 var corsOptions = {
   origin: 'http://localhost:3000'
@@ -121,6 +126,8 @@ app.get('/api/tech/jobs/:id', techCtrl.getAllTechJobs);
 app.put('/api/tech/appointments/update', techCtrl.updateTechAppointment);
 
 app.post('/api/tech/manufacturers/create', techCtrl.createNewManuf);
+
+app.post('/api/tech/email', techCtrl.sendEmail);
 
 
 

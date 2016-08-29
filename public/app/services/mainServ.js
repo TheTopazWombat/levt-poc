@@ -112,9 +112,9 @@ function mainServ($http, $q, $state, ngDialog) {
         logo: 'car',
       },
       {
-        img: './assets/images/kt_merc_63.jpg',
+        img: './assets/images/4wheeler.png',
         title_text: 'KT Audi R8',
-        logo: 'car',
+        logo: 'scooter',
       },
       {
         img: './assets/images/kt_mini.jpg',
@@ -122,9 +122,9 @@ function mainServ($http, $q, $state, ngDialog) {
         logo: 'car',
       },
       {
-        img: './assets/images/kt_viper_blue2.jpg',
+        img: './assets/images/joe_fly.png',
         title_text: 'KT Audi R8',
-        logo: 'car',
+        logo: 'bike',
       },
       {
         img: './assets/images/kt_viper_blue.jpg',
@@ -137,14 +137,14 @@ function mainServ($http, $q, $state, ngDialog) {
         logo: 'car',
       },
       {
-        img: './assets/images/pw_escalade2.jpg',
+        img: './assets/images/igo_bike.png',
         title_text: 'KT Audi R8',
-        logo: 'car',
+        logo: 'bike',
       },
       {
-        img: './assets/images/pw_mustang.jpg',
+        img: './assets/images/tidalforce_1.png',
         title_text: 'KT Audi R8',
-        logo: 'car',
+        logo: 'bike',
       },
       {
         img: './assets/images/pw_porche.jpg',
@@ -157,7 +157,7 @@ function mainServ($http, $q, $state, ngDialog) {
         logo: 'scooter',
       },
       {
-        img: './assets/images/razor_300_2.gif',
+        img: './assets/images/razor_scooter.png',
         title_text: 'Razor E300',
         logo: 'scooter',
       },
@@ -168,6 +168,26 @@ function mainServ($http, $q, $state, ngDialog) {
       },
       {
         img: './assets/images/scooter_1.jpg',
+        title_text: 'Mototec R950',
+        logo: 'bike',
+      },
+      {
+        img: './assets/images/peg_tractor.png',
+        title_text: 'Mototec R950',
+        logo: 'car',
+      },
+      {
+        img: './assets/images/dune_racer.png',
+        title_text: 'Mototec R950',
+        logo: 'car',
+      },
+      {
+        img: './assets/images/crazy_cart.png',
+        title_text: 'Mototec R950',
+        logo: 'scooter',
+      },
+      {
+        img: './assets/images/army_scooter.jpg',
         title_text: 'Mototec R950',
         logo: 'scooter',
       },

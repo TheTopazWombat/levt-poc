@@ -1,17 +1,131 @@
 <div class="dashboard-subview appts-subview">
-  <cm-appts-accordion></cm-appts-accordion>
+  <!-- <tech-appts-accordion></tech-appts-accordion> -->
 
-  <div class="new-appt" id="subview-new-appt-container">
-    <h1>Request New Appt</h1>
-    <span class="input">
-    <!-- <input class="input__field" type="text" id="input-4" /> -->
-    <input type="text" ng-model="callThisNum" class="input__field cm-phone-input" id="input-4">
-    <label class="input__label input__label--color-1" for="input-4">
-      <span class="input__label-content">What Number should we call?</span>
-    </label>
-  </span>
-      <datetimepicker data-ng-model="data.date" data-before-render="beforeRender($view, $dates, $leftDate, $upDate, $rightDate)" data-on-set-time="onTimeSet(newDate, oldDate, callThisNum)"></datetimepicker>
-      <button type="button" class="submit-btn" ng-click="requestNewAppt(job.tech_assigned); closeThisDialog()">Submit</button>
+  <div class="accordian jobs-accordion" id="accd-1">
+      <div class="accordian-header">
+        <h1>{{pastAppts.length}}</h1>
+        <h2>Future Appointments</h2>
+
+      </div>
+      <div class="accordian-contents panel">
+        <uib-accordion close-others="true" ng-repeat="job in pastAppts">
+        <div class="mini-claim"  uib-accordion-group class="panel-default" heading="{{job.display_time}}">
+          <h4>Invoice:<span class="job-info"> {{job.invoice}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.model_num}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.serial_num}}</span></h4>
+          <hr>
+          <p><span class="job-info">Job Status</span></p>
+          <p>{{job.status}}</p>
+          <hr>
+          <p><span class="job-info">Next Step</span></p>
+          <p>{{job.next_step}}</p>
+          <hr>
+          <p><span class="job-info">Tracking Number</span></p>
+          <p>{{job.tracking_num}}</p>
+          <br>
+          <button type="button" name="button" ng-click="getJobByInvoice(job.invoice, job.appt_time, jpb.appt_met, job.appt_phone, job.appt_id)">Update Information</button>
+
+          </div>
+      </uib-accordion>
+
+      </div>
+
+
+
+      <!-- <div class="accordian-contents">
+        <div class="body2">
+          These are not
+        </div>
+
+      </div> -->
+  </div>
+
+  <!-- **** TODAY **** -->
+
+  <div class="accordian jobs-accordion" id="accd-2">
+      <div class="accordian-header">
+        <h1>{{todayAppts.length}}</h1>
+        <h2>Missed appointments</h2>
+
+      </div>
+      <div class="accordian-contents panel">
+        <uib-accordion close-others="true" ng-repeat="job in todayAppts">
+        <div class="mini-claim"  uib-accordion-group class="panel-default" heading="{{job.display_time}}">
+          <h4>Invoice:<span class="job-info"> {{job.invoice}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.model_num}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.serial_num}}</span></h4>
+          <hr>
+          <p><span class="job-info">Job Status</span></p>
+          <p>{{job.status}}</p>
+          <hr>
+          <p><span class="job-info">Next Step</span></p>
+          <p>{{job.next_step}}</p>
+          <hr>
+          <p><span class="job-info">Tracking Number</span></p>
+          <p>{{job.tracking_num}}</p>
+          <br>
+          <button type="button" name="button" ng-click="getJobByInvoice(job.invoice, job.appt_time, jpb.appt_met, job.appt_phone, job.appt_id)">Update Information</button>
+
+          </div>
+      </uib-accordion>
+
+      </div>
+
+
+
+      <!-- <div class="accordian-contents">
+        <div class="body2">
+          These are not
+        </div>
+
+      </div> -->
+  </div>
+
+  <!-- *** FUTURE ***  -->
+
+  <div class="accordian jobs-accordion" id="accd-3">
+      <div class="accordian-header">
+        <h1>{{futureAppts.length}}</h1>
+        <h2>Today's Appointments</h2>
+
+      </div>
+      <div class="accordian-contents panel">
+        <uib-accordion close-others="true" ng-repeat="job in futureAppts">
+        <div class="mini-claim"  uib-accordion-group class="panel-default" heading="{{job.display_time}}" close-others="true">
+          <h4>Invoice:<span class="job-info"> {{job.invoice}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.model_num}}</span></h4>
+          <hr>
+          <h4><span class="job-info">{{job.serial_num}}</span></h4>
+          <hr>
+          <p><span class="job-info">Job Status</span></p>
+          <p>{{job.status}}</p>
+          <hr>
+          <p><span class="job-info">Next Step</span></p>
+          <p>{{job.next_step}}</p>
+          <hr>
+          <p><span class="job-info">Tracking Number</span></p>
+          <p>{{job.tracking_num}}</p>
+          <br>
+          <button type="button" name="button" ng-click="getJobByInvoice(job.invoice, job.appt_time, jpb.appt_met, job.appt_phone, job.appt_id)">Update Information</button>
+
+          </div>
+      </uib-accordion>
+
+      </div>
+
+
+
+      <!-- <div class="accordian-contents">
+        <div class="body2">
+          These are not
+        </div>
+
+      </div> -->
   </div>
 
 

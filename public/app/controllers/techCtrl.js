@@ -1,29 +1,45 @@
-angular.module('app')
+  angular.module('app')
     .controller('techCtrl', techCtrl);
 
 function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDialog) {
   console.log($rootScope.testUser);
   $scope.getAllTechJobs = (id) => {
     techService.getAllTechJobs(id).then(response => {
-      console.log(response);
+      $scope.techJobs = response.data;
+      console.log($scope.techJobs);
     });
+
+  };
+  $scope.clear = () => {
+    $scope.searchInvoice = '';
   };
     $scope.getJobByInvoice = (invoice, apptTime, apptMet, apptPhone, apptId) => {
         techService.getJobByInvoice(invoice)
             .then(response => {
                 // console.log("More info:", response, apptTime, apptMet, apptPhone);
-                $scope.customer = response;
+                for (let prop in response) {
+                  if (response[prop] === 'null') {
+                    response[prop] = 'No Value Entered';
+                  }
+                }
+                $scope.currentCmJob = response;
+                console.log($scope.currentCmJob);
                 ngDialog.open({
                     template: './assets/templates/modals/more-info-job.html',
                     scope: $scope
                 });
-                $scope.customer.appt_time = moment(apptTime).format('MMMM Do YYYY, h:mm a');
-                $scope.customer.appt_met = apptMet;
+                if (apptTime){
+                  $scope.currentCmJob.appt_time = moment(apptTime).format('MMMM Do YYYY, h:mm a');
+                }
+                else {
+                  $scope.currentCmJob.appt_time = "None scheduled"
+                }
+                $scope.currentCmJob.appt_met = apptMet;
                 if (apptPhone){
                   $scope.customer.appt_phone = apptPhone;
                 }
-                $scope.customer.appt_id = apptId;
-                console.log("customer:", $scope.customer);
+                $scope.currentCmJob.appt_id = apptId;
+                console.log("customer:", $scope.currentCmJob);
 
             });
     };
@@ -37,6 +53,8 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
             // $scope.getCmJobs($rootScope.testUser.id);
             // console.log($rootScope.currentTech.tech_assigned);
             $scope.getAllTechAppointments($rootScope.currentTech.tech_assigned);
+            $scope.getAllTechJobs($rootScope.currentTech.tech_assigned);
+
         });
 
     };
@@ -67,7 +85,6 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       techService.getAllAppointments().then(function(response) {
         $scope.appointments = response;
         // console.log($scope.appointments);
-        $scope.numOfAppts = $scope.appointments.length;
 
       });
     };
@@ -80,6 +97,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
         let unmetAppts = [];
         let techAppointments = response;
         console.log(techAppointments);
+
         for (let i = 0; i < techAppointments.length; i++) {
           if (!techAppointments[i].isMet) {
             unmetAppts.push(techAppointments[i]);
@@ -102,6 +120,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
         else {
           $scope.missedApptsMessage = "Oh no! You missed these appointments!";
         }
+        $scope.numOfAppts = unmetAppts.length;
 
       });
       // console.log($scope.pastAppts, $scope.todayAppts, $scope.futureAppts);
@@ -135,7 +154,20 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
         hours_of_op: hours_of_op
       };
       console.log(dataObj);
+      for (var prop in dataObj) {
+        if (!dataObj[prop]) {
+          ngDialog.open({
+            template: './assets/templates/modals/form-error.html',
+            scope: $scope
+          });
+          return;
+        }
+      }
       techService.createNewManuf(dataObj).then(response => {
+        ngDialog.open({
+            template: './assets/templates/modals/new-manuf-created.html',
+            scope: $scope
+        });
         console.log(response.data);
         console.log($scope.manuf_name);
         $scope.manuf_name = '';
@@ -147,4 +179,19 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
       });
     };
 
+    const clearEmail = () => {
+      $scope.emailObj = null;
+      return alert("email received!");
+  };
+
+    $scope.sendCmEmail = (emailObj) =>{
+      console.log(emailObj);
+      techService.sendEmail({
+          toField: emailObj.toField,
+          subjectField: emailObj.subjectField,
+          textField: emailObj.textField
+      }).then((response) => {
+          clearEmail();
+      });
+    };
 }

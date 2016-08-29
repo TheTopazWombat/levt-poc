@@ -1,29 +1,37 @@
 <div class="dashboard-subview claims-subview">
 
-    <cm-claims-accordian></cm-claims-accordian>
+  <div class="job-lookup">
+    <h1>Look Up Job By Invoice</h1>
+    <span class="input">
+    <input class="input__field" type="text" id="input-40" ng-model="searchInvoice"/>
+    <label class="input__label input__label--color-1" for="input-40">
+      <span class="input__label-content">INVOICE NUMBER</span>
+
+    </label>
+  </span>
+  <button type="button" name="button" ng-click="getJobByInvoice(searchInvoice); clear();">Submit</button>
+
+  </div>
 
     <div class="contact-us">
         <!-- <img src="assets/images/levt-thumbnail.png" alt=""> -->
-        <h1>Contact Us  <span class="glyphicon glyphicon-envelope"></span></h1>
+        <h1>Email Customer   <span class="glyphicon glyphicon-envelope"></span></h1>
         <form>
             <ul class="form-style-1">
                 <li>
                     <label>Email <span class="required">*</span></label>
-                    <input type="email" name="field3" class="field-long" />
+                    <input type="email" name="field3" class="field-long" ng-model="emailObj.toField"/>
                 </li>
                 <li>
-                    <label>Which Claim is this about?</label>
-                    <select name="field4" class="field-select">
-                        <option ng-repeat="job in myJobs" value="Advertise">{{job.invoice}}</option>
-                        <option value="General Question">Other</option>
-                    </select>
+                    <label>Subject</label>
+                    <input type="subject" name="field3" class="field-long" ng-model="emailObj.subjectField"/>
                 </li>
                 <li>
                     <label>Your Message <span class="required">*</span></label>
-                    <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+                    <textarea name="field5" id="field5" class="field-long field-textarea" ng-model="emailObj.textField"></textarea>
                 </li>
                 <li>
-                    <button type="submit" value="Submit">Submit</button>
+                    <button type="submit" value="Submit" ng-click="sendCmEmail(emailObj)">Submit</button>
                 </li>
             </ul>
         </form>

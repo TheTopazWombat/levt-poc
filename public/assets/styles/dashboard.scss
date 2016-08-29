@@ -167,12 +167,41 @@
   background-color: #f4f4f4;
 }
 
+#wide-accordion {
+  width:850px;
+  .accordian-contents {
+    width: 25%;
+    height:100px;
+  }
+}
+
+#accd-1 {
+  position: absolute;
+
+}
+
+#accd-2 {
+  position: absolute;
+  margin-left: 460px;
+}
+
+#accd-3 {
+  position: absolute;
+  margin-left: 860px;
+}
+
 .accordian {
   display: inline-block;
 
   width: 350px;
   margin-left: 60px;
   margin-top: 50px;
+
+  .jobs-accordion {
+    .min-claim {
+      height:50px;
+    }
+  }
 
   .accordian-header {
     height: 100px;
@@ -187,9 +216,9 @@
     }
     .active {
       background-color: #fff;
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -198,19 +227,29 @@
     background-color: #fff;
     display: inline-block;
     width: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     // min-height: 150px;
 
   }
 
   .mini-claim {
-    // border: 1px solid rgba(0, 0, 0, 0.1);
+    // border: 1px solid rgba(0, 0, 0, 0.2);
     padding-top: 15px;
     padding-bottom: 15px;
     opacity: 1;
     -webkit-transition: -webkit-transform 2s ease-in-out;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    p {
+      text-align: left;
+    }
+    h4 {
+      text-align: left;
+    }
+    button {
+      width: 150px;
+    }
   }
 
   .panel-body {
@@ -256,7 +295,7 @@
     background-color: #fff;
     min-height: 250px;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     font-family: "Roboto";
 
 
@@ -355,4 +394,55 @@ select{
 }
 .form-style-1 .required{
     color:red;
+}
+
+.job-lookup {
+  margin-top: 60px;
+  margin-left: 60px;
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  .input {
+    width: 60%;
+  }
+  .input__label-content {
+    text-align: left;
+    margin-left: 20px;
+  }
+  button {
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+}
+
+.more-info {
+  h3 {
+    color: #555555;
+    font-weight:700;
+    span {
+      color: #1a5063;
+    }
+  }
+  #next-step {
+    text-decoration: underline;
+  }
+}
+
+  .panel-group {
+    margin-bottom: 0px !important;
+  }
+
+.mini-claim {
+  h4 {
+    color: #555555;
+    font-weight:700;
+
+  }
+  .job-info {
+    font-weight: 700;
+    color: #1a5063;
+  }
 }

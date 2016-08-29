@@ -73,4 +73,13 @@ function techService($http) {
       url: '/api/tech/jobs/' + id
     });
   };
+  this.sendEmail = function (email) {
+    return $http({
+      method: "POST",
+      url: "/api/tech/email",
+      data: email
+    }).then(function (response) {
+      return response.data;
+    });
+  };
 }

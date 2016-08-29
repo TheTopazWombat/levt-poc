@@ -1002,11 +1002,30 @@ select {
 .dashboard-subview {
   background-color: #f4f4f4; }
 
+#wide-accordion {
+  width: 850px; }
+  #wide-accordion .accordian-contents {
+    width: 25%;
+    height: 100px; }
+
+#accd-1 {
+  position: absolute; }
+
+#accd-2 {
+  position: absolute;
+  margin-left: 460px; }
+
+#accd-3 {
+  position: absolute;
+  margin-left: 860px; }
+
 .accordian {
   display: inline-block;
   width: 350px;
   margin-left: 60px;
   margin-top: 50px; }
+  .accordian .jobs-accordion .min-claim {
+    height: 50px; }
   .accordian .accordian-header {
     height: 100px;
     justify-content: center;
@@ -1019,22 +1038,29 @@ select {
       cursor: pointer; }
     .accordian .accordian-header .active {
       background-color: #fff;
-      border-left: 1px solid rgba(0, 0, 0, 0.1);
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(0, 0, 0, 0.2); }
   .accordian .accordian-contents {
     text-align: center;
     background-color: #fff;
     display: inline-block;
     width: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   .accordian .mini-claim {
     padding-top: 15px;
     padding-bottom: 15px;
     opacity: 1;
-    -webkit-transition: -webkit-transform 2s ease-in-out; }
+    -webkit-transition: -webkit-transform 2s ease-in-out;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    .accordian .mini-claim p {
+      text-align: left; }
+    .accordian .mini-claim h4 {
+      text-align: left; }
+    .accordian .mini-claim button {
+      width: 150px; }
   .accordian .panel-body {
     border-top: none !important; }
   .accordian .anim {
@@ -1065,7 +1091,7 @@ select {
   background-color: #fff;
   min-height: 250px;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-family: "Roboto"; }
   .contact-us img {
     margin-left: 15px;
@@ -1156,6 +1182,44 @@ select {
 .form-style-1 .required {
   color: red; }
 
+.job-lookup {
+  margin-top: 60px;
+  margin-left: 60px;
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px; }
+  .job-lookup .input {
+    width: 60%; }
+  .job-lookup .input__label-content {
+    text-align: left;
+    margin-left: 20px; }
+  .job-lookup button {
+    margin-top: 15px;
+    margin-bottom: 50px; }
+
+.more-info h3 {
+  color: #555555;
+  font-weight: 700; }
+  .more-info h3 span {
+    color: #1a5063; }
+
+.more-info #next-step {
+  text-decoration: underline; }
+
+.panel-group {
+  margin-bottom: 0px !important; }
+
+.mini-claim h4 {
+  color: #555555;
+  font-weight: 700; }
+
+.mini-claim .job-info {
+  font-weight: 700;
+  color: #1a5063; }
+
 .footer {
   width: 100%;
   background-color: #222222; }
@@ -1221,6 +1285,11 @@ select {
 .single_service {
   margin-top: 100px;
   margin-bottom: 100px; }
+  .single_service h2 {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    margin-top: 5px; }
 
 .single_service i {
   position: relative;
@@ -1307,6 +1376,10 @@ select {
   border: 1px solid #ddd;
   padding: 42px;
   background-color: #ffffff; }
+  .tab-pane h3 {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 10px; }
 
 .portfolio_area {
   background-color: #fff;
@@ -1315,7 +1388,11 @@ select {
 .portfolio_section h1 {
   color: #266D88;
   text-transform: uppercase;
-  font-weight: 600; }
+  font-weight: 600;
+  text-align: center; }
+
+.portfolio_top {
+  margin-bottom: 10px; }
 
 #info {
   -webkit-border-radius: 5px;
@@ -1816,11 +1893,11 @@ body.ngdialog-open {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 25px;
   padding-bottom: 5px;
-  margin-top: 25px;
   text-align: center;
   clear: both; }
+  .appts-container .missed-appts {
+    margin-top: 60px; }
   .appts-container h2 {
     padding-bottom: 5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
@@ -1895,7 +1972,9 @@ button:hover {
 
 .manuf-container {
   text-align: center;
-  justify-content: center; }
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px; }
 
 .new-manuf {
   margin: auto;
@@ -1909,4 +1988,9 @@ button:hover {
   .new-manuf .manuf-field {
     width: 30%; }
   .new-manuf .input__label-content {
-    text-align: left; }
+    text-align: left;
+    margin-left: 15px; }
+  .new-manuf button {
+    width: 175px;
+    margin-bottom: 40px;
+    margin-top: 15px; }

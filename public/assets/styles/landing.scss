@@ -13,6 +13,12 @@
 .single_service {
     margin-top: 100px;
     margin-bottom: 100px;
+    h2 {
+      font-size:20px;
+      text-decoration: underline;
+      margin-bottom:5px;
+      margin-top: 5px;
+    }
 }
 .single_service i {
     position: relative;
@@ -103,6 +109,11 @@
     border: 1px solid #ddd;
     padding: 42px;
     background-color: #ffffff;
+    h3 {
+      font-size: 20px;
+      text-decoration: underline;
+      margin-bottom: 10px;
+    }
 }
 .portfolio_area {
   // display: none;
@@ -116,8 +127,11 @@
     color: #266D88;
     text-transform: uppercase;
     font-weight: 600;
+    text-align: center;
 }
-.portfolio_top {}
+.portfolio_top {
+  margin-bottom: 10px;
+}
 .portfolio {}
 #info {
     -webkit-border-radius: 5px;

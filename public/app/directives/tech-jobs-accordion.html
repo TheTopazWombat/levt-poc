@@ -1,32 +1,33 @@
 <div class="accordian jobs-accordian">
     <div class="accordian-header">
-        <div class="accordian-selector active" id="current-select">
+      <h1>{{techJobs.length}}</h1>
+      <h2>Current Jobs</h2>
+        <!-- <div class="accordian-selector active" id="current-select">
             <h1>{{myJobs.length}}</h1>
             <h2>Current Claims</h2>
         </div>
         <div class="accordian-selector" id="old-select">
             <h1>0</h1>
             <h2>Old Claims</h2>
-        </div>
+        </div> -->
 
     </div>
     <div class="accordian-contents panel">
-      <!-- <div class="mini-claim" ng-repeat="job in myJobs" data-toggle="collapse" data-target="#collapseOne">
+      <!-- <div class="mini-claim" ng-repeat="job in myJobs" data-toggle="collapse" data-target="#coltteamcolapseOne">
         <h3 class="accordian-item">Model: {{job.model_num}}</h3>
         <h3 class="accordian-item">Invoice: {{job.invoice}}</h3>
 
 
       </div> -->
       <uib-accordion>
-      <div class="mini-claim" ng-repeat="job in myJobs" uib-accordion-group class="panel-default" heading="{{job.model_num}}">
-            <p>Job Status:</p>
+      <div class="mini-claim" ng-repeat="job in techJobs" uib-accordion-group class="panel-default" heading="{{job.model_num}}">
+        BUUUUUTTTTSSSS
+            <h4>{{job.invoice}}</h4>
+            <h4>{{job.model_num}}</h4>
+            <h4>{{job.serial_num}}</h4>
             <p>{{job.status}}</p>
-            <hr>
-            <p>Next Step:</p>
             <p>{{job.next_step}}</p>
-            <hr>
-            <p>Tracking Number:{{job.tracking_num}}</p>
-            <hr>
+            <p>{{job.tracking_num}}</p>
             <button type="button" name="button" ng-click="openCalander(job.invoice, job.tech_assigned)">New Appointment</button>
             <br>
             <button type="button" name="button" ng-click="openUpdateInfo(job)">Update Information</button>
@@ -35,7 +36,7 @@
     </uib-accordion>
 
       <div class="old-claims-div">
-        <!-- <h1>No Old Claims!</h1> -->
+        <h1>No Old Claims!</h1>
       </div>
 
     </div>

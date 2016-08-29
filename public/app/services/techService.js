@@ -72,4 +72,13 @@ angular.module('app')
         url: '/api/tech/jobs/' + id,
       });
     };
+    this.sendEmail = (email) => {
+        return $http({
+            method: "POST",
+            url: "/api/tech/email",
+            data: email
+        }).then((response) => {
+            return response.data;
+        });
+    };
   }

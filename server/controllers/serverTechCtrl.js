@@ -1,7 +1,33 @@
 var app = require('../index');
 var db = app.get('db');
+var config = require('../config');
+var nodemailer = require('nodemailer');
+
+var user = config.emailAccountUser;
+var password = config.emailPassword;
+var name = config.emailName;
+
+var transport = nodemailer.createTransport("SMTP", {
+  service: "Gmail",
+  auth: {
+    user: user,
+    pass: password,
+  }
+
+});
 
 module.exports = {
+  sendEmail: function(req, res, next) {
+    transport.sendMail({
+      from: "Isaac at LEVT <levt.isaac@gmail.com>",
+      to: req.body.toField,
+      subject: req.body.subjectField,
+      text: req.body.textField
+    }, function(err, response) {
+      err? console.log(err) : res.send('email sent');
+      transport.close();
+    });
+  },
   getTechInfo: function(req, res, next) {
     if(req.user) {
       console.log('we have a user');
@@ -69,5 +95,6 @@ module.exports = {
       db.get_all_tech_jobs(req.params.id, function(err, response) {
         res.set(200).json(response);
       });
-    }
+    },
+
 };

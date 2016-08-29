@@ -22,7 +22,11 @@ angular.module('app')
     url: '/',
     // controller: './app/controllers/userCtrl.js',
     templateUrl: 'assets/templates/landing.html',
-    resolve: {}
+    resolve: {
+      showPortfolio: function showPortfolio() {
+        $('.portfolio_area').show();
+      }
+    }
   }).state('login', {
     url: '/login',
     templateUrl: 'assets/templates/login.html',
@@ -66,7 +70,17 @@ angular.module('app')
 
   }).state('cm-dashboard.main.claims', {
     url: '/claims',
-    templateUrl: 'assets/templates/cm-dashboard-main.claims.html'
+    templateUrl: 'assets/templates/cm-dashboard-main.claims.html',
+    security: function security(mainServ, $state, $rootScope) {
+      // console.log(err);
+      if (!$rootScope.testUser) {
+        console.log('Hey! You dont exist!');
+        $state.go('my-account.create');
+      } else {
+        console.log('You exist!');
+        $state.go('cm-dashboard.main.claims');
+      }
+    }
   }).state('cm-dashboard.main.appts', {
     url: '/appointments',
     templateUrl: 'assets/templates/cm-dashboard-main.appts.html'
