@@ -119,44 +119,44 @@ angular.module('app')
 
                 }
             })
-            .state('my-account', {
-              url: '/my-account',
-              templateUrl: 'assets/templates/my-account.html',
-              resolve: {
-                hidePortfolio: function() {
-                  $('.portfolio_area').hide();
-                },
-              //   security: (mainServ, $state, $rootScope) => {
-              //     // console.log(err);
-              //     if (!$rootScope.testUser) {
-              //       console.log('Hey! You dont exist!');
-              //       $state.go('my-account.create');
-              //     }
-              //     else {
-              //       console.log('You exist!');
-              //       $state.go('my-account.info');
-              //     }
+            // .state('my-account', {
+            //   url: '/my-account',
+            //   templateUrl: 'assets/templates/my-account.html',
+            //   resolve: {
+            //     hidePortfolio: function() {
+            //       $('.portfolio_area').hide();
+            //     },
+            //   //   security: (mainServ, $state, $rootScope) => {
+            //   //     // console.log(err);
+            //   //     if (!$rootScope.testUser) {
+            //   //       console.log('Hey! You dont exist!');
+            //   //       $state.go('my-account.create');
+            //   //     }
+            //   //     else {
+            //   //       console.log('You exist!');
+            //   //       $state.go('my-account.info');
+            //   //     }
+            //   //   }
+            //   }
+            // })
+              // .state('my-account.info', {
+              //   url: '/info',
+              //   templateUrl: 'assets/templates/my-account.info.html',
+              //   resolve: {
+              //     security: (mainServ, $state) => {
+              //       mainServ.isAuthed().then(response => {
+              //         if (response.data == "Not authorized") {
+              //           $state.go('my-account.new');
+              //         }
+              //       });
+              //     },
+              //     hidePortfolio: function() {
+              //       $('.portfolio_area').hide();
+              //     },
               //   }
-              }
-            })
-              .state('my-account.info', {
-                url: '/info',
-                templateUrl: 'assets/templates/my-account.info.html',
-                resolve: {
-                  security: (mainServ, $state) => {
-                    mainServ.isAuthed().then(response => {
-                      if (response.data == "Not authorized") {
-                        $state.go('my-account.new');
-                      }
-                    });
-                  },
-                  hidePortfolio: function() {
-                    $('.portfolio_area').hide();
-                  },
-                }
-              })
-              .state('my-account.new', {
-                url: '/new',
+              // })
+              .state('myaccount', {
+                url: 'myaccount/new',
                 templateUrl: 'assets/templates/my-account.create.html',
                 resolve: {
                   helloNewPerson: () => {

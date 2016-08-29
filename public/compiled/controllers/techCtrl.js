@@ -171,7 +171,11 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
 
   var clearEmail = function clearEmail() {
     $scope.emailObj = null;
-    return alert("email received!");
+    // return alert("email received!");
+    ngDialog.open({
+      template: './assets/templates/modals/email-sent.html',
+      scope: $scope
+    });
   };
 
   $scope.sendCmEmail = function (emailObj) {

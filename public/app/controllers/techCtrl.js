@@ -32,7 +32,7 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
                   $scope.currentCmJob.appt_time = moment(apptTime).format('MMMM Do YYYY, h:mm a');
                 }
                 else {
-                  $scope.currentCmJob.appt_time = "None scheduled"
+                  $scope.currentCmJob.appt_time = "None scheduled";
                 }
                 $scope.currentCmJob.appt_met = apptMet;
                 if (apptPhone){
@@ -181,7 +181,12 @@ function techCtrl($scope, techService, $rootScope, mainServ, loginService, ngDia
 
     const clearEmail = () => {
       $scope.emailObj = null;
-      return alert("email received!");
+      // return alert("email received!");
+      ngDialog.open({
+          template: './assets/templates/modals/email-sent.html',
+          scope: $scope
+      });
+
   };
 
     $scope.sendCmEmail = (emailObj) =>{
