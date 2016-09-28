@@ -10,6 +10,11 @@ CREATE TABLE customers (
   password varchar(40)
 );
 
+create table test1 (
+  id serial primary key,
+  test_stuff varchar(40)
+)
+
 CREATE TABLE jobs (
   invoice serial primary key,
   cm_id integer references customers(id),
@@ -45,6 +50,13 @@ CREATE TABLE manufacturers (
   warranty varchar(80),
   website varchar(60),
   hours_of_op varchar(120)
+)
+
+insert into test1 (
+  test_stuff
+)
+values (
+  'Hi there sexy'
 )
 
 insert into manufacturers (

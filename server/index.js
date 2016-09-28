@@ -109,6 +109,14 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
+//test
+app.get('/test/:id', function(req, res, next) {
+  db.test(req.params.id, function(err, response) {
+    console.log(err, response);
+    res.send(response);
+  });
+});
+
 //LOGIN
 app.post('/login/cm', isAuthenticated, userCtrl.getMyCmInfo);
 app.get('/api/isAuthed', userCtrl.getUserType);
