@@ -1,5 +1,6 @@
 var app = require('../index');
 var db = app.get('db');
+var bcrypt = require('bcrypt');
 
 module.exports = {
     createNewCustomer: function(req, res, next) {
@@ -115,7 +116,30 @@ module.exports = {
       console.log(err, response);
       res.set(200).json('Account successfully created');
     });
-  }
+  },
+  //THANKS STEVEN ILU <3
+  addCM: (req, res, next) => {
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+        db.add_case_manager([req.body.name, req.body.department, req.body.contact_number, req.body.email, req.body.username, req.body.password, req.body.cm_image], (err, resp) => {
+            if (err) {
+                return res.status(500).json(err);
+            } else {
+                return res.status(200).send(true);
+            }
+        });
+    },
+
+
+ updateCM: (req, res, next) => {
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+        db.update_CM_information([req.body.name, req.body.department, req.body.contact_number, req.body.email, req.body.username, req.body.password, req.body.cm_image, req.params.id], (err, resp) => {
+            if (err) {
+                return res.status(500).json(err);
+            } else {
+                return res.status(200).json('Case Manager Updated!');
+            }
+        });
+    },
   // createNewCmAccountReq: function(req, res, next) {
   //   console.log("got it",req.body);
   //   db.create_new_cm_account_req([req.body.first_name, req.body.last_name, req.body.address, req.body.invoice_number, req.body.phone_num1, req.body.phone_num2, req.body.model_num, req.body.serial_num], function(err, response) {
