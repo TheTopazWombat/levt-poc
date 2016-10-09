@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-// The function below is useless in the real world and a bad idea, this is used simply for functional demonstration purposes.
+// The function below is useless in the real world and a bad idea, this is used simply for functional demonstration purposes. Soon to be deleted and replaced with proper auth.
 
 var isAuthenticated =  function(req, res, next) {
   if (req.user) {
