@@ -30,4 +30,11 @@ angular.module('app')
         url: '/api/tech'
       });
     };
+    this.register = (user) => {
+      return $http({
+        method: 'POST',
+        url: '/api/users/register',
+        data: user
+      });
+    };
   }

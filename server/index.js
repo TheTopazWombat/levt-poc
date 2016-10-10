@@ -6,6 +6,9 @@ var massive = require('massive');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var config = require('./config.js');
+var bcrypt = require('bcrypt');
+var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var connectionString = config.connectionString;
 
@@ -63,6 +66,27 @@ var isAuthenticated =  function(req, res, next) {
   }
 };
 
+passport.use(new LocalStrategy((username, password, done) => {
+    db.get_user_by_username([username], (err, user) => {
+        console.log(user, err);
+        user = user[0];
+        if (err) {
+            return done(err);
+        }
+        if (!user) {
+            return done(null, false);
+        }
+        if (!bcrypt.compareSync(password, user.password)) {
+            return done(null, false);
+        }
+        return done(null, user);
+    });
+}));
+
+app.post('/auth/local', passport.authenticate('local'), function(req, res) {
+    res.status(200).redirect('/home');
+});
+
 passport.use(new GoogleStrategy({
         clientID: config.clientID,
         clientSecret: config.clientSecret,
@@ -116,6 +140,10 @@ app.get('/test/:id', function(req, res, next) {
     res.send(response);
   });
 });
+
+//REGISTER
+app.post('/api/users/new', userCtrl.createNewCustomer);
+
 
 //LOGIN
 app.post('/login/cm', isAuthenticated, userCtrl.getMyCmInfo);
