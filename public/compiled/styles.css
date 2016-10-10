@@ -623,7 +623,10 @@ body {
 
 /*LOGIN VIEW*/
 .login-section {
-  height: 70vh; }
+  height: 70vh;
+  margin-bottom: 350px; }
+  .login-section .sign-btn {
+    margin-left: 25%; }
 
 .login-container {
   width: 300px;

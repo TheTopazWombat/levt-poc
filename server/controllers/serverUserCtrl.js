@@ -5,6 +5,9 @@ var bcrypt = require('bcrypt');
 module.exports = {
     createNewCustomer: function(req, res, next) {
         console.log(req.body);
+        if (req.body) {
+          db.create_new_customer()
+        }
     },
     createNewTech: function(req, res, next) {
         console.log(req.body);

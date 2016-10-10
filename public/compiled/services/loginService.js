@@ -31,4 +31,11 @@ function loginService($http) {
       url: '/api/tech'
     });
   };
+  this.register = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/api/users/register',
+      data: user
+    });
+  };
 }

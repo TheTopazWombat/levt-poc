@@ -141,6 +141,10 @@ app.get('/test/:id', function(req, res, next) {
   });
 });
 
+//REGISTER
+app.post('/api/users/new', userCtrl.createNewCustomer);
+
+
 //LOGIN
 app.post('/login/cm', isAuthenticated, userCtrl.getMyCmInfo);
 app.get('/api/isAuthed', userCtrl.getUserType);
